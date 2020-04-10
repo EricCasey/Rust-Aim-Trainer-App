@@ -1,0 +1,22 @@
+$primaryColor: #BADA55;
+$secondaryColor: #BADA55;
+
+$green: #669931;
+
+$gradient_bottom: #26281E;
+$gradient_top: #434830;
+$gray: #655F58;
+$dark_green: #1E211C;
+
+.App {
+  text-align: center;
+  background: rgb(38,40,30);
+  background: linear-gradient(0deg, $gradient_bottom, $gradient_top);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  .Head, .Right, .Foot, .Left, .Action {
+    border: 2px solid $green;
+    border-radius: 4px;
+  }
+}

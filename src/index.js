@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// VANILLA REACT STUFF
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+import "./semantic/dist/semantic.min.css";
+
+import registerServiceWorker from './registerServiceWorker';
+
+// REDUX STUFF / REACT-REDUX STUFF
+import { Provider } from 'react-redux';
+import ReduxPromise from 'redux-promise';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './rr_reducers';
+
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+                <Provider store={createStoreWithMiddleware(reducers)}>
+                  <App />
+                </Provider>, document.getElementById('root')
+              );
+registerServiceWorker();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+

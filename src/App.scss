@@ -1,0 +1,802 @@
+$border-color: lightgreen;
+$alt-border-color: #212121;
+
+$background-color: black;
+$alt-background-color: #212121;
+
+$text-color: white;
+
+body, html {
+  background: $alt-background-color !important;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  background: $background-color;
+  overflow: hidden;
+  .Head, .Left, .Right, .Foot, .Action {
+    border: 2px solid $border-color;
+    border-radius: 4px;
+    background: $background-color;
+    position: absolute;
+    color: $border-color;
+    transition: 0.7s all;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    h1, h2 {
+      margin: auto;
+      width: 100%;
+    }
+  }
+  .Head:hover, 
+  .Left:hover, 
+  .Right:hover, 
+  .Foot:hover, 
+  .Action:hover {
+    color: $text-color;
+    transition: 0.7s all;
+  }
+  .Head {
+    top: -2px;
+    height: 36px;
+    width: calc(100% - 38px);
+    overflow: hidden;
+    img {
+      width: 40px;
+      height: 34px;
+      filter: invert(1);
+    }
+    h5 {
+      margin: 0;
+      height: 36px;
+      align-items: center;
+      color: $text-color;
+      font-size: 28px;
+      border-bottom: 1px solid $alt-border-color;
+      width: calc(100% - 10px);
+      transition: 0.7s all;
+    }
+    #tricksCont {
+      //border: 1px solid blue;
+      width: 100%;
+      height: calc(260px);
+      display: flex;
+      overflow: scroll;
+      margin: 0px auto 0 auto;
+      transition: 0.7s all;
+      .trick {
+        border: 2px solid $border-color;
+        border-radius: 4px;
+        min-width: 350px;
+        height: 90%;
+        margin: 10px;
+      }
+    }
+  }
+  .Left {
+    left: -2px;
+    top: 38px;
+    height: calc(100% - 74px);
+    width: 36px;
+    overflow: hidden;
+    #leftCont {
+      //border: 2px solid yellow;
+      width: 100%;
+      height: 100%;
+      h2 {
+        width: 300px;
+        height: 50px;
+        transition: 0.7s all;
+        padding-top: 1px;
+        pointer-events:none;
+        color: $text-color;
+        border-bottom: 1px solid $alt-border-color;
+        mix-blend-mode: difference;
+      }
+      #leftList {
+        //border: 1px solid blue;
+        height: calc(100% - 55px);
+        width: 98%;
+        margin: auto;
+        transition: 0.7s all;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        .leftO {
+          border: 2px solid $border-color;
+          height: 100px;
+          width: 100%;
+          border-radius: 4px;
+          margin: 5px auto;
+          display: flex;
+          flex-wrap: wrap;
+          h5 {
+            width: 100%;
+            margin-bottom: 3px;
+            padding-top: 5px;
+            height: 20px;
+          }
+          .targetSelect,
+          .attachmentSelect,
+          .rangeSelect,
+          .optionSelect {
+            border: 1px soild $border-color;
+            width: 90%;
+            height: 80%;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            .targetOption,
+            .attachmentOption,
+            .rangeOption,
+            .optionOption {
+              border-radius: 4px;
+              border: 1px solid $border-color;
+              width: 25%;
+              height: 70%;
+              margin: auto;
+            }
+            .optionOption {
+              width: 45%;
+              height: 33px;
+            }
+            .attachmentOption,
+            .targetOption,
+            .rangeOption {
+              overflow: hidden;
+              div {
+                // position: absolute;
+                width: 64px;
+                height: 50px;
+                // border: 2px solid red;
+                display: flex;
+                pointer-events: none;
+                p {
+                  // border: 1px solid blue;
+                  margin: auto;
+                  width: 100%;
+                  opacity: 0;
+                  transition: 0.7s all;
+                  pointer-events: none;
+                }
+              }
+              .optionImgCont {
+                // border: 1px solid white;
+                height: 50px;
+                width: 64px;
+                display: flex;
+                margin-top: -50px;
+                // position: absolute;
+                .attachmentImg,
+                .targetImg {
+                  // position: absolute;
+                  height: 50px;
+                  width: 50px;
+                  margin: auto;
+                  // margin-top: -150px;
+                  pointer-events: none;
+                }
+              }
+
+            }
+            .attachmentOption:hover,
+            .targetOption:hover,
+            .rangeOption:hover {
+              border: 1px solid white;
+              pointer-events: hover;
+              div {
+                background: #21212180;
+                pointer-events: none;
+                p {
+                  opacity: 1;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+        }
+        .left_weapons {
+          height: 300px;
+          #weaponSide {
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100px;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            #weaponCarousel {
+              // border: 1px solid green;
+              width: calc(100% - 60px);
+              #weaponSelected {
+                // border: 3px dashed green;
+                height:90px;
+                width: 90px;
+              }
+            }
+            #weaponNext,
+            #weaponPrev {
+              height: 100%;
+              width: 30px;
+              display: flex;
+              p {
+                margin: auto;
+                pointer-events:none;
+              }
+            }
+            #weaponNext {
+              border-left: 1px solid $border-color;
+            }
+            #weaponPrev {
+              border-right: 1px solid $border-color;
+            }
+            #weaponNext:hover,
+            #weaponPrev:hover {
+              background: #21212180;
+              border-color: white;
+            }
+          }
+          #weaponStats {
+            // border: 1px solid red;
+            height: 135px;
+            width: 90%;
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            h5 {
+              width: 100%;
+            }
+            #weaponGraphCont {
+              // border: 1px dashed red;
+              width: 100%;
+              height: calc(100% - 20px);
+              display: flex;
+              #weaponGraphs {
+                // border: 1px dashed green;
+                width: 80%;
+                height: 100%;
+                margin: 0;
+                font-size: 10px;
+                .graphCont {
+                  // border: 1px solid blue;
+                  display: flex;
+                  height: 18px;
+                  margin: 2px auto;
+                  p {
+                    width: 30px;
+                    height: 100%;
+                    // border: 1px solid white;
+                    margin: auto;
+                  }
+                  p:first-child {
+                    width: 35%;
+                    height: 100%;
+                    // border: 1px solid white;
+                    text-align: right;
+                    margin: auto;
+                  }
+                  .barChart {
+                    // border: 1px dashed white;
+                    width: 60%;
+                    margin: auto;
+                    height: 100%;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    .bar {
+                      height: 100%;
+                      background: $border-color;
+                      transition: 0.7s all;
+                    }
+                  }
+                }
+              }
+              #playerModel {
+                height: 100%;
+                width: 20%;
+                // border: 1px dashed blue;
+                margin: 0;
+                img {
+                  height: 100%;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+        .left_uioptions {
+          height: 225px;
+          .optionOption {
+            display: flex;
+            p {
+              margin: auto;
+              pointer-events: none;
+            }
+          }
+          .optionOption:hover {
+            border-color: white;
+            background: #21212180;
+          }
+        }
+        .left_firerate,
+        .left_randomness {
+          height: 65px;
+          div {
+            // border: 1px solid white;
+            width: 90%;
+            display: flex;
+            margin: auto;
+            input {
+              margin: auto;
+              width: 70%;
+            }
+            p {
+              margin: auto;
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Right {
+    right: -2px;
+    height: calc(100% - 36px);
+    width: 36px;
+    overflow: hidden;
+    h2 {
+      width: 300px;
+      height: 50px;
+      transition: 0.7s all;
+      padding-top: 1px;
+      pointer-events: none;
+      color: $text-color;
+      border-bottom: 1px solid $alt-border-color;
+      mix-blend-mode: difference;
+    }
+    #rightList {
+      border: 2px solid $border-color;
+      border-radius: 4px;
+      height: calc(100% - 55px);
+      width: 98%;
+      height: 100%;
+      margin: auto;
+      transition: 0.7s all;
+      display: flex;
+      flex-wrap: wrap;
+      // overflow: scroll;
+      #statSelect {
+        border: 1px solid $alt-border-color;
+        border-radius: 4px;
+        width: 98%;
+        height: 50px;
+        display: flex;
+        margin: auto auto;
+        h3 {
+          width: 40%;
+          margin: auto;
+        }
+      }
+      #statCont {
+        // border: 1px solid blue;
+        width: 98%;
+        height: calc(100% - 50px);
+        margin: auto;
+        #statSubCont {
+          // border: 1px solid red;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          div {
+            border-bottom: 1px solid $alt-border-color;
+            // border-radius: 4px;
+            width: 98%;
+            margin: 4px auto;
+            display: flex;
+            p {
+              margin: auto;
+              width: 30%;
+            }
+            p:first-child {
+              // border: 1px solid blue;
+              text-align: right;
+            }
+          }
+          #sprayTrack {
+            // border: 1px solid red;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            #sprayTrack_hit,
+            #sprayTrack_mag {
+              border: 1px solid $alt-border-color;
+              border-radius: 4px;
+              margin: auto;
+              height: 40%;
+              padding-left: 5px;
+              padding-right: 5px;
+            }
+            #sprayTrack_hit {
+              display: flex;
+              align-content: flex-start;
+            }
+          }
+          #targetAnalysis {
+            border: 1px solid $alt-border-color;
+            border-radius: 4px;
+            height: 250px;
+            width: 250px;
+            display: flex;
+            p {
+              position: absolute;
+              height: 15px;
+              width: 15px;
+              border: 1px solid $border-color;
+              font-size: 10px;
+              text-align: center;
+              border-radius: 4px;
+              background: #21212180;
+            }
+            #analysisTarget {
+              // border: 1px solid red;
+              position: absolute;
+              height: 250px;
+              width: 250px;
+              margin: 0;
+              img {
+                height: 250px;
+                width: 250px;
+                margin: 0;
+              }
+            }
+            #analysisOverlay {
+              position: absolute;
+              // border: 1px dashed green;
+              height: 250px;
+              width: 250px;
+              margin: 0;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .Foot {
+    bottom: -4px;
+    height: 36px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    h2 {
+      border-bottom: 1px solid $text-color;
+      width: 90%;
+      height: 34px;
+      margin: 0 auto;
+      pointer-events:none;
+      mix-blend-mode: difference;
+      color: $text-color;
+    }
+    #aboutCont {
+      // border: 1px solid #212121;
+      width: 90%;
+      height: calc(100% - 48px);
+      margin: auto;
+      margin-top: 5px;
+      display: flex;
+      .triple {
+        width: 32%;
+        height: 98%;
+        margin: auto;
+        border: 1px solid #21212180;
+        border-radius: 4px;
+        color: white;
+        h3 {
+          width: 100%;
+          border-bottom: white;
+          margin: auto;
+          text-align: center;
+        }
+        #shopArea {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          overflow: scroll;
+          padding-bottom: 50px;
+          .affiliateArea {
+            border: 1px solid #212121;
+            border-radius: 4px;
+            width: 90%;
+            height: 200px;
+            margin: auto;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3px;
+            h4 {
+              border-bottom: 1px solid #212121;
+              width: 100%;
+              padding-left: 5px;
+              margin-bottom: 0;
+              height: 25px;
+            }
+            p {
+              // border: 1px solid blue;
+              height: 40px;
+              width: 98%;
+              margin: 0 auto;
+              font-style: italic;
+
+            }
+            img {
+              border: 2px solid #212121;
+              border-radius: 4px;
+              margin: auto;
+              height: 100px;
+              width: 133px;
+            }
+          }
+          .affiliateArea:hover {
+            border-color: white;
+            transition: 0.5s all;
+          }
+          
+        }
+        #legalArea {
+          // border: 1px solid red;
+          width: 100%;
+          height: calc(100% - 20px);
+          overflow: scroll;
+          padding: 5px;
+        }
+      }
+    }
+  }
+  .Action {
+    left: 39px;
+    top: 38px;
+    width: calc(100% - 76px);
+    height: calc(100% - 74px); 
+    overflow: hidden;  
+    display: flex;
+    .cursorOverlay {
+      // border: 1px dashed white;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      .Foreground {
+        // border: 1px solid red;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 2;
+        #foreground_score {
+          border: 1px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 200px;
+          height: 35px;
+          right: 5px;
+          top: 5px;
+          transition: 0.7s all;
+        }
+        #sprayMap {
+          // background: green;
+          position: absolute;
+          // border: 1px solid red;
+          height: 500px;
+          width: 400px;
+          .snakePoint {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            // background: white;
+            border: 1px solid white;
+            // mix-blend-mode: difference;
+          }
+        }
+        #sprayGuide {
+          // background: green;
+          position: absolute;
+          // border: 1px solid red;
+          height: 500px;
+          width: 400px;
+          transform: scale(-1, -1);
+          z-index: 101;
+          .guidePoint {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            border: 2px solid cyan;
+            z-index: 3;
+            transition: 0.1s all;
+            opacity: 0.8;
+          }
+        }
+        #equippedWeapon {
+          pointer-events: none;
+          position: absolute;
+          // border: 1px solid red;
+          height: 400px;
+          width: 800px;
+          z-index: 99;
+          // transition: 2s all;
+        }
+        #reddot {
+          pointer-events: none;
+          position: absolute;
+          height: 4px;
+          width: 4px;
+          transition: 0.5s opacity;
+          background: red;
+          border-radius: 50%;
+          z-index: 103;
+        }
+        #belt {
+          // border: 1px solid white;
+          width: 450px;
+          height: 75px;
+          display: flex;
+          position: absolute;
+          top: calc(100% - 100px);
+          left: calc(50% - 225px);
+          z-index: 104;
+          .beltSlot {
+            height: 70px;
+            width: 70px;
+            margin: auto;
+            transition: 0.3s all;
+            border-radius: 2px;
+            img {
+              height: 65px;
+              width: 65px;
+              margin: auto;
+            }
+          }
+        }
+        #positionDebug {
+          border: 1px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 80px;
+          right: 5px;
+          top: calc(100% - 25px);
+        }
+      }
+      .Foreground:hover {
+        cursor: help;
+        cursor: none;
+      }
+      .Background {
+        // background: blue;
+        // border: 2px dashed white;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        display: flex;
+        .bgImg {
+          margin: auto;
+          img {
+            margin: auto;
+          }
+          #hitbox_overlay {
+            position: absolute;
+            // border: 1px solid red;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            padding-bottom: 5px;
+            transition: 0s all;
+            #hitbox_bounds {
+              // border: 1px solid green;
+              margin: auto;
+              display: flex;
+              transition: 0.7s all;
+              .hitbox_area {
+                // position: absolute;
+                border: 1px solid blue;
+                margin: auto;
+                transition: 0.7s all;
+              }
+              .hibox_area_pie {
+                background: blue;
+                transition: 0.7s all;
+              }
+            }
+          }
+        }
+        #hitMap {
+          // border: 1px solid red;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          margin: auto;
+          z-index: 2;
+          .hole {
+            height: 4px;
+            width: 4px;
+            margin-left: -1px;
+            margin-top: -1px;
+            // background: white;
+            // mix-blend-mode: difference;
+          }
+        }
+      }
+    } 
+
+  }
+
+  .Foot #hoverBox-Foot,
+  .Left #hoverBox-Left,
+  .Right #hoverBox-Right {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: 0.7s all;
+    padding: 2px;
+    z-index: 100;
+    //border: 1px dashed violet;
+  }
+  .Left #hoverBox-Left,
+  .Right #hoverBox-Right {
+    width: 36px;
+  }
+  .Left #hoverBox-Left {
+    right: 0px;
+  }
+  .Foot #hoverBox-Foot {
+    height: 36px;
+  }
+  .Left #hoverBox-Left:hover {
+    -webkit-box-shadow: inset -10px 0px 20px -5px rgba(0,255,26,0.88); 
+    box-shadow: inset -10px 0px 20px -5px rgba(0,255,26,0.88);
+    transition: 0.7s all;
+  }
+  .Foot #hoverBox-Foot:hover {
+    -webkit-box-shadow: inset 20px -5px -10px 0px rgba(0,255,26,0.88); 
+    box-shadow: inset 0px 10px 20px -5px rgba(0,255,26,0.88);
+    transition: 0.7s all;
+  }
+  .Right #hoverBox-Right:hover {
+    -webkit-box-shadow: inset 10px 0px 20px -5px rgba(0,255,26,0.88); 
+    box-shadow: inset 10px 0px 20px -5px rgba(0,255,26,0.88);
+    transition: 0.7s all;
+  }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: none; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgreen; 
+  border: 2px solid black;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $text-color; 
+}

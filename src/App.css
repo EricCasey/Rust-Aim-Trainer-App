@@ -1,38 +1,733 @@
+body, html {
+  background: #212121 !important; }
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
+  height: 100%;
+  width: 100%;
+  background: black;
+  overflow: hidden; }
+  .App .Head, .App .Left, .App .Right, .App .Foot, .App .Action {
+    border: 2px solid lightgreen;
+    border-radius: 4px;
+    background: black;
+    position: absolute;
+    color: lightgreen;
+    transition: 0.7s all;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; }
+    .App .Head h1, .App .Head h2, .App .Left h1, .App .Left h2, .App .Right h1, .App .Right h2, .App .Foot h1, .App .Foot h2, .App .Action h1, .App .Action h2 {
+      margin: auto;
+      width: 100%; }
+  .App .Head:hover,
+  .App .Left:hover,
+  .App .Right:hover,
+  .App .Foot:hover,
+  .App .Action:hover {
+    color: white;
+    transition: 0.7s all; }
+  .App .Head {
+    top: -2px;
+    height: 36px;
+    width: calc(100% - 38px);
+    overflow: hidden; }
+    .App .Head img {
+      width: 40px;
+      height: 34px;
+      filter: invert(1); }
+    .App .Head h5 {
+      margin: 0;
+      height: 36px;
+      align-items: center;
+      color: white;
+      font-size: 28px;
+      border-bottom: 1px solid #212121;
+      width: calc(100% - 10px);
+      transition: 0.7s all; }
+    .App .Head #tricksCont {
+      width: 100%;
+      height: calc(260px);
+      display: flex;
+      overflow: scroll;
+      margin: 0px auto 0 auto;
+      transition: 0.7s all; }
+      .App .Head #tricksCont .trick {
+        border: 2px solid lightgreen;
+        border-radius: 4px;
+        min-width: 350px;
+        height: 90%;
+        margin: 10px; }
+  .App .Left {
+    left: -2px;
+    top: 38px;
+    height: calc(100% - 74px);
+    width: 36px;
+    overflow: hidden; }
+    .App .Left #leftCont {
+      width: 100%;
+      height: 100%; }
+      .App .Left #leftCont h2 {
+        width: 300px;
+        height: 50px;
+        transition: 0.7s all;
+        padding-top: 1px;
+        pointer-events: none;
+        color: white;
+        border-bottom: 1px solid #212121;
+        mix-blend-mode: difference; }
+      .App .Left #leftCont #leftList {
+        height: calc(100% - 55px);
+        width: 98%;
+        margin: auto;
+        transition: 0.7s all;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll; }
+        .App .Left #leftCont #leftList .leftO {
+          border: 2px solid lightgreen;
+          height: 100px;
+          width: 100%;
+          border-radius: 4px;
+          margin: 5px auto;
+          display: flex;
+          flex-wrap: wrap; }
+          .App .Left #leftCont #leftList .leftO h5 {
+            width: 100%;
+            margin-bottom: 3px;
+            padding-top: 5px;
+            height: 20px; }
+          .App .Left #leftCont #leftList .leftO .targetSelect,
+          .App .Left #leftCont #leftList .leftO .attachmentSelect,
+          .App .Left #leftCont #leftList .leftO .rangeSelect,
+          .App .Left #leftCont #leftList .leftO .optionSelect {
+            border: 1px soild lightgreen;
+            width: 90%;
+            height: 80%;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap; }
+            .App .Left #leftCont #leftList .leftO .targetSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .targetSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .optionOption {
+              border-radius: 4px;
+              border: 1px solid lightgreen;
+              width: 25%;
+              height: 70%;
+              margin: auto; }
+            .App .Left #leftCont #leftList .leftO .targetSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .optionOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .optionOption {
+              width: 45%;
+              height: 33px; }
+            .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .targetSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .targetOption,
+            .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption {
+              overflow: hidden; }
+              .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption div,
+              .App .Left #leftCont #leftList .leftO .targetSelect .targetOption div,
+              .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .targetOption div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption div {
+                width: 64px;
+                height: 50px;
+                display: flex;
+                pointer-events: none; }
+                .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption div p,
+                .App .Left #leftCont #leftList .leftO .targetSelect .targetOption div p,
+                .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .targetOption div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption div p {
+                  margin: auto;
+                  width: 100%;
+                  opacity: 0;
+                  transition: 0.7s all;
+                  pointer-events: none; }
+              .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .targetSelect .targetOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .optionSelect .targetOption .optionImgCont,
+              .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption .optionImgCont {
+                height: 50px;
+                width: 64px;
+                display: flex;
+                margin-top: -50px; }
+                .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .targetSelect .targetOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .targetSelect .targetOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .targetOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .targetOption .optionImgCont .targetImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption .optionImgCont .attachmentImg,
+                .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption .optionImgCont .targetImg {
+                  height: 50px;
+                  width: 50px;
+                  margin: auto;
+                  pointer-events: none; }
+            .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption:hover,
+            .App .Left #leftCont #leftList .leftO .targetSelect .targetOption:hover,
+            .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption:hover,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption:hover,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption:hover,
+            .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption:hover,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption:hover,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption:hover,
+            .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption:hover,
+            .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption:hover,
+            .App .Left #leftCont #leftList .leftO .optionSelect .targetOption:hover,
+            .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover {
+              border: 1px solid white;
+              pointer-events: hover; }
+              .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption:hover div,
+              .App .Left #leftCont #leftList .leftO .targetSelect .targetOption:hover div,
+              .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption:hover div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption:hover div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption:hover div,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption:hover div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption:hover div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption:hover div,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption:hover div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption:hover div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .targetOption:hover div,
+              .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover div {
+                background: #21212180;
+                pointer-events: none; }
+                .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .targetSelect .targetOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .targetOption:hover div p,
+                .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover div p {
+                  opacity: 1;
+                  pointer-events: none; }
+        .App .Left #leftCont #leftList .left_weapons {
+          height: 300px; }
+          .App .Left #leftCont #leftList .left_weapons #weaponSide {
+            border: 1px solid lightgreen;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100px;
+            width: 90%;
+            margin: auto;
+            display: flex; }
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponCarousel {
+              width: calc(100% - 60px); }
+              .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponCarousel #weaponSelected {
+                height: 90px;
+                width: 90px; }
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponNext,
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponPrev {
+              height: 100%;
+              width: 30px;
+              display: flex; }
+              .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponNext p,
+              .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponPrev p {
+                margin: auto;
+                pointer-events: none; }
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponNext {
+              border-left: 1px solid lightgreen; }
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponPrev {
+              border-right: 1px solid lightgreen; }
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponNext:hover,
+            .App .Left #leftCont #leftList .left_weapons #weaponSide #weaponPrev:hover {
+              background: #21212180;
+              border-color: white; }
+          .App .Left #leftCont #leftList .left_weapons #weaponStats {
+            height: 135px;
+            width: 90%;
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap; }
+            .App .Left #leftCont #leftList .left_weapons #weaponStats h5 {
+              width: 100%; }
+            .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont {
+              width: 100%;
+              height: calc(100% - 20px);
+              display: flex; }
+              .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs {
+                width: 80%;
+                height: 100%;
+                margin: 0;
+                font-size: 10px; }
+                .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont {
+                  display: flex;
+                  height: 18px;
+                  margin: 2px auto; }
+                  .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont p {
+                    width: 30px;
+                    height: 100%;
+                    margin: auto; }
+                  .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont p:first-child {
+                    width: 35%;
+                    height: 100%;
+                    text-align: right;
+                    margin: auto; }
+                  .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont .barChart {
+                    width: 60%;
+                    margin: auto;
+                    height: 100%;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                    overflow: hidden; }
+                    .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont .barChart .bar {
+                      height: 100%;
+                      background: lightgreen;
+                      transition: 0.7s all; }
+              .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #playerModel {
+                height: 100%;
+                width: 20%;
+                margin: 0; }
+                .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #playerModel img {
+                  height: 100%;
+                  width: 100%; }
+        .App .Left #leftCont #leftList .left_uioptions {
+          height: 225px; }
+          .App .Left #leftCont #leftList .left_uioptions .optionOption {
+            display: flex; }
+            .App .Left #leftCont #leftList .left_uioptions .optionOption p {
+              margin: auto;
+              pointer-events: none; }
+          .App .Left #leftCont #leftList .left_uioptions .optionOption:hover {
+            border-color: white;
+            background: #21212180; }
+        .App .Left #leftCont #leftList .left_firerate,
+        .App .Left #leftCont #leftList .left_randomness {
+          height: 65px; }
+          .App .Left #leftCont #leftList .left_firerate div,
+          .App .Left #leftCont #leftList .left_randomness div {
+            width: 90%;
+            display: flex;
+            margin: auto; }
+            .App .Left #leftCont #leftList .left_firerate div input,
+            .App .Left #leftCont #leftList .left_randomness div input {
+              margin: auto;
+              width: 70%; }
+            .App .Left #leftCont #leftList .left_firerate div p,
+            .App .Left #leftCont #leftList .left_randomness div p {
+              margin: auto;
+              width: 30%; }
+  .App .Right {
+    right: -2px;
+    height: calc(100% - 36px);
+    width: 36px;
+    overflow: hidden; }
+    .App .Right h2 {
+      width: 300px;
+      height: 50px;
+      transition: 0.7s all;
+      padding-top: 1px;
+      pointer-events: none;
+      color: white;
+      border-bottom: 1px solid #212121;
+      mix-blend-mode: difference; }
+    .App .Right #rightList {
+      border: 2px solid lightgreen;
+      border-radius: 4px;
+      height: calc(100% - 55px);
+      width: 98%;
+      height: 100%;
+      margin: auto;
+      transition: 0.7s all;
+      display: flex;
+      flex-wrap: wrap; }
+      .App .Right #rightList #statSelect {
+        border: 1px solid #212121;
+        border-radius: 4px;
+        width: 98%;
+        height: 50px;
+        display: flex;
+        margin: auto auto; }
+        .App .Right #rightList #statSelect h3 {
+          width: 40%;
+          margin: auto; }
+      .App .Right #rightList #statCont {
+        width: 98%;
+        height: calc(100% - 50px);
+        margin: auto; }
+        .App .Right #rightList #statCont #statSubCont {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start; }
+          .App .Right #rightList #statCont #statSubCont div {
+            border-bottom: 1px solid #212121;
+            width: 98%;
+            margin: 4px auto;
+            display: flex; }
+            .App .Right #rightList #statCont #statSubCont div p {
+              margin: auto;
+              width: 30%; }
+            .App .Right #rightList #statCont #statSubCont div p:first-child {
+              text-align: right; }
+          .App .Right #rightList #statCont #statSubCont #sprayTrack {
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap; }
+            .App .Right #rightList #statCont #statSubCont #sprayTrack #sprayTrack_hit,
+            .App .Right #rightList #statCont #statSubCont #sprayTrack #sprayTrack_mag {
+              border: 1px solid #212121;
+              border-radius: 4px;
+              margin: auto;
+              height: 40%;
+              padding-left: 5px;
+              padding-right: 5px; }
+            .App .Right #rightList #statCont #statSubCont #sprayTrack #sprayTrack_hit {
+              display: flex;
+              align-content: flex-start; }
+          .App .Right #rightList #statCont #statSubCont #targetAnalysis {
+            border: 1px solid #212121;
+            border-radius: 4px;
+            height: 250px;
+            width: 250px;
+            display: flex; }
+            .App .Right #rightList #statCont #statSubCont #targetAnalysis p {
+              position: absolute;
+              height: 15px;
+              width: 15px;
+              border: 1px solid lightgreen;
+              font-size: 10px;
+              text-align: center;
+              border-radius: 4px;
+              background: #21212180; }
+            .App .Right #rightList #statCont #statSubCont #targetAnalysis #analysisTarget {
+              position: absolute;
+              height: 250px;
+              width: 250px;
+              margin: 0; }
+              .App .Right #rightList #statCont #statSubCont #targetAnalysis #analysisTarget img {
+                height: 250px;
+                width: 250px;
+                margin: 0; }
+            .App .Right #rightList #statCont #statSubCont #targetAnalysis #analysisOverlay {
+              position: absolute;
+              height: 250px;
+              width: 250px;
+              margin: 0; }
+  .App .Foot {
+    bottom: -4px;
+    height: 36px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left; }
+    .App .Foot h2 {
+      border-bottom: 1px solid white;
+      width: 90%;
+      height: 34px;
+      margin: 0 auto;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      color: white; }
+    .App .Foot #aboutCont {
+      width: 90%;
+      height: calc(100% - 48px);
+      margin: auto;
+      margin-top: 5px;
+      display: flex; }
+      .App .Foot #aboutCont .triple {
+        width: 32%;
+        height: 98%;
+        margin: auto;
+        border: 1px solid #21212180;
+        border-radius: 4px;
+        color: white; }
+        .App .Foot #aboutCont .triple h3 {
+          width: 100%;
+          border-bottom: white;
+          margin: auto;
+          text-align: center; }
+        .App .Foot #aboutCont .triple #shopArea {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          overflow: scroll;
+          padding-bottom: 50px; }
+          .App .Foot #aboutCont .triple #shopArea .affiliateArea {
+            border: 1px solid #212121;
+            border-radius: 4px;
+            width: 90%;
+            height: 200px;
+            margin: auto;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3px; }
+            .App .Foot #aboutCont .triple #shopArea .affiliateArea h4 {
+              border-bottom: 1px solid #212121;
+              width: 100%;
+              padding-left: 5px;
+              margin-bottom: 0;
+              height: 25px; }
+            .App .Foot #aboutCont .triple #shopArea .affiliateArea p {
+              height: 40px;
+              width: 98%;
+              margin: 0 auto;
+              font-style: italic; }
+            .App .Foot #aboutCont .triple #shopArea .affiliateArea img {
+              border: 2px solid #212121;
+              border-radius: 4px;
+              margin: auto;
+              height: 100px;
+              width: 133px; }
+          .App .Foot #aboutCont .triple #shopArea .affiliateArea:hover {
+            border-color: white;
+            transition: 0.5s all; }
+        .App .Foot #aboutCont .triple #legalArea {
+          width: 100%;
+          height: calc(100% - 20px);
+          overflow: scroll;
+          padding: 5px; }
+  .App .Action {
+    left: 39px;
+    top: 38px;
+    width: calc(100% - 76px);
+    height: calc(100% - 74px);
+    overflow: hidden;
+    display: flex; }
+    .App .Action .cursorOverlay {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      display: flex; }
+      .App .Action .cursorOverlay .Foreground {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 2; }
+        .App .Action .cursorOverlay .Foreground #foreground_score {
+          border: 1px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 200px;
+          height: 35px;
+          right: 5px;
+          top: 5px;
+          transition: 0.7s all; }
+        .App .Action .cursorOverlay .Foreground #sprayMap {
+          position: absolute;
+          height: 500px;
+          width: 400px; }
+          .App .Action .cursorOverlay .Foreground #sprayMap .snakePoint {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            border: 1px solid white; }
+        .App .Action .cursorOverlay .Foreground #sprayGuide {
+          position: absolute;
+          height: 500px;
+          width: 400px;
+          transform: scale(-1, -1);
+          z-index: 101; }
+          .App .Action .cursorOverlay .Foreground #sprayGuide .guidePoint {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            border: 2px solid cyan;
+            z-index: 3;
+            transition: 0.1s all;
+            opacity: 0.8; }
+        .App .Action .cursorOverlay .Foreground #equippedWeapon {
+          pointer-events: none;
+          position: absolute;
+          height: 400px;
+          width: 800px;
+          z-index: 99; }
+        .App .Action .cursorOverlay .Foreground #reddot {
+          pointer-events: none;
+          position: absolute;
+          height: 4px;
+          width: 4px;
+          transition: 0.5s opacity;
+          background: red;
+          border-radius: 50%;
+          z-index: 103; }
+        .App .Action .cursorOverlay .Foreground #belt {
+          width: 450px;
+          height: 75px;
+          display: flex;
+          position: absolute;
+          top: calc(100% - 100px);
+          left: calc(50% - 225px);
+          z-index: 104; }
+          .App .Action .cursorOverlay .Foreground #belt .beltSlot {
+            height: 70px;
+            width: 70px;
+            margin: auto;
+            transition: 0.3s all;
+            border-radius: 2px; }
+            .App .Action .cursorOverlay .Foreground #belt .beltSlot img {
+              height: 65px;
+              width: 65px;
+              margin: auto; }
+        .App .Action .cursorOverlay .Foreground #positionDebug {
+          border: 1px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 80px;
+          right: 5px;
+          top: calc(100% - 25px); }
+      .App .Action .cursorOverlay .Foreground:hover {
+        cursor: help;
+        cursor: none; }
+      .App .Action .cursorOverlay .Background {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        display: flex; }
+        .App .Action .cursorOverlay .Background .bgImg {
+          margin: auto; }
+          .App .Action .cursorOverlay .Background .bgImg img {
+            margin: auto; }
+          .App .Action .cursorOverlay .Background .bgImg #hitbox_overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            padding-bottom: 5px;
+            transition: 0s all; }
+            .App .Action .cursorOverlay .Background .bgImg #hitbox_overlay #hitbox_bounds {
+              margin: auto;
+              display: flex;
+              transition: 0.7s all; }
+              .App .Action .cursorOverlay .Background .bgImg #hitbox_overlay #hitbox_bounds .hitbox_area {
+                border: 1px solid blue;
+                margin: auto;
+                transition: 0.7s all; }
+              .App .Action .cursorOverlay .Background .bgImg #hitbox_overlay #hitbox_bounds .hibox_area_pie {
+                background: blue;
+                transition: 0.7s all; }
+        .App .Action .cursorOverlay .Background #hitMap {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          margin: auto;
+          z-index: 2; }
+          .App .Action .cursorOverlay .Background #hitMap .hole {
+            height: 4px;
+            width: 4px;
+            margin-left: -1px;
+            margin-top: -1px; }
+  .App .Foot #hoverBox-Foot,
+  .App .Left #hoverBox-Left,
+  .App .Right #hoverBox-Right {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: 0.7s all;
+    padding: 2px;
+    z-index: 100; }
+  .App .Left #hoverBox-Left,
+  .App .Right #hoverBox-Right {
+    width: 36px; }
+  .App .Left #hoverBox-Left {
+    right: 0px; }
+  .App .Foot #hoverBox-Foot {
+    height: 36px; }
+  .App .Left #hoverBox-Left:hover {
+    -webkit-box-shadow: inset -10px 0px 20px -5px rgba(0, 255, 26, 0.88);
+    box-shadow: inset -10px 0px 20px -5px rgba(0, 255, 26, 0.88);
+    transition: 0.7s all; }
+  .App .Foot #hoverBox-Foot:hover {
+    -webkit-box-shadow: inset 20px -5px -10px 0px rgba(0, 255, 26, 0.88);
+    box-shadow: inset 0px 10px 20px -5px rgba(0, 255, 26, 0.88);
+    transition: 0.7s all; }
+  .App .Right #hoverBox-Right:hover {
+    -webkit-box-shadow: inset 10px 0px 20px -5px rgba(0, 255, 26, 0.88);
+    box-shadow: inset 10px 0px 20px -5px rgba(0, 255, 26, 0.88);
+    transition: 0.7s all; }
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgreen;
+  border: 2px solid black;
+  border-radius: 4px;
+  opacity: 0.7; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white; }
