@@ -11,10 +11,6 @@ class Background extends Component {
     this.state = {}
   }
 
-  ComponentWillReceiveProps() {
-    console.log("component updating")
-  }
-
   render() {
     let backgroundName = this.props.targets.currentTarget
     let background = ''
