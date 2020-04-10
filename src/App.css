@@ -394,7 +394,8 @@ body, html {
       margin: auto;
       transition: 0.7s all;
       display: flex;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      color: white; }
       .App .Right #rightList #statSelect {
         border: 1px solid #212121;
         border-radius: 4px;
