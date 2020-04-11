@@ -144,7 +144,7 @@ class Left extends Component {
               </div>
             </div>
 
-            <div className="leftO">
+            {/* <div className="leftO">
               <h5>MUZZLE ATTACHMENTS</h5>
               <div className="attachmentSelect">
 
@@ -182,7 +182,7 @@ class Left extends Component {
                 </div>
 
               </div>
-            </div>
+            </div> */}
 
             <div className="leftO">
 
@@ -362,7 +362,7 @@ class Left extends Component {
             <div className="leftO left_firerate">
               <h5>FIRE RATE</h5>
               <div>
-                <input onChange={this.props.OptionChange} type="range" id="o_fireRate" name="points" min="25" max="200"/>
+                <input onChange={this.props.OptionChange} value={this.props.options.o_fireRate} type="range" id="o_fireRate" name="points" min="25" max="500"/>
                 <p>{this.props.options.o_fireRate}%</p>
               </div>
             </div>
@@ -370,15 +370,15 @@ class Left extends Component {
             <div className="leftO left_randomness">
               <h5>RANDOMNESS</h5>
               <div>
-                <input onChange={this.props.OptionChange} type="range" id="o_randomness" name="points" min="0" max="100"/>
-                <p>{this.props.options.o_randomness}%</p>
+                <input onChange={this.props.OptionChange} value={this.props.options.o_randomness} type="range" id="o_randomness" name="points" min="0" max="25"/>
+                <p>{this.props.options.o_randomness}px</p>
               </div>
             </div>
 
-            <div className="leftO">
+            {/* <div className="leftO">
               <h5>Sounds</h5>
               <div>as a %</div>
-            </div>
+            </div> */}
 
           </div>
         </div>

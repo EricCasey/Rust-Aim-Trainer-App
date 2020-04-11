@@ -38,8 +38,9 @@ class Foot extends Component {
               
               <h5>Note From The Developer:</h5>
               <p>I made this for fun after finding <a href="https://rustyrecoil.com/" target="_blank" rel="noopener noreferrer">Rusty Recoil</a> during the COVID-19 quarrantine.
-                 I reached out to the OP of Rusty Recoil on Reddit to see if it was okay that I did this but I didn't get an answer.
-                 It's not perfect but it's been a fun excersie. If you're Facepunch or Rusty Recoil please let me know if you have a problem with this site.
+                 I reached out to the <a href="https://www.reddit.com/r/playrust/comments/9x3n3h/a_friend_and_i_created_a_rust_recoil_training/" target="_blank" rel="noopener noreferrer">OP of Rusty Recoil on Reddit</a> to see if it was okay that I did this but I didn't get an answer.
+                 It's not perfect, and there are a few bugs but it's been a fun excersie and I think it might still help some people to understand
+                 the recoil patterns without having to grind for hours. If you're Facepunch or Rusty Recoil please let me know if you have a problem with this site.
               </p>
               
               <h5>Copyrights:</h5>
@@ -102,6 +103,12 @@ class Foot extends Component {
               <div className="affiliateArea">
                 <h4>BUY RUST MERCH</h4>
                 <p>Let everyone know you're a Chad.</p>
+                <img alt="preview" src="https://i.imgur.com/UINLkUN.jpg" />
+              </div>
+
+              <div className="affiliateArea">
+                <h4>RUSTY RECOIL</h4>
+                <p>This is the site that inspired this site.</p>
                 <img alt="preview" src="https://i.imgur.com/UINLkUN.jpg" />
               </div>
 

@@ -38,11 +38,13 @@ class Head extends Component {
           style={{
           width: this.props.layout.head
             ? 'calc(100% - 40px)'
-            : '300px',
+            : '400px',
           fontSize: this.props.layout.head
             ? '28px'
             : '26px'
-        }}>Rust Aim Trainer</h5>
+        }}>RUST . RECOIL . MONSTER</h5>
+
+        <img src="https://i.imgur.com/qG7Bo8s.png" alt="logo"/>
 
         <div
           id="tricksCont"

@@ -13,7 +13,7 @@ class Right extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stats: 's_latest'
+      stats: 's_session'
     }
     this.statSelect = this.statSelect.bind(this);
   }
@@ -22,8 +22,6 @@ class Right extends Component {
 
   render() {
     let lay = this.props.layout;
-    console.log(this.props.history.latest)
-    console.log(this.props.weapons)
     let weapon = Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]
     let hits = 0
     let miss = 0
@@ -57,30 +55,36 @@ class Right extends Component {
       return ''
     })
 
-    let analysisOverlay = ''
-    if(this.props.targets.currentTarget === 'target_player') {
-      analysisOverlay = (
-        <div id="analysisOverlay">
-          <p style={{ left: 105, top: 30 }}>{hit_head}</p>
-          <p style={{ left: 105, top: 80 }}>{hit_chest}</p>
-          <p style={{ left: 130, top: 70 }}>{hit_arms}</p>
-          <p style={{ left: 105, top: 150 }}>{hit_legs}</p>
-          <p style={{ left: 50, top: 70 }}>{miss}</p>
-        </div>
-      )
-    } else if (this.props.targets.currentTarget === 'target_archery') {
-      analysisOverlay = (
-        <div id="analysisOverlay">
-          archery
-        </div>
-      )
-    } else {
-      analysisOverlay = (
-        <div id="analysisOverlay">
-          darts
-        </div>
-      )
-    }
+    console.log(this.props.history.latest)
+    console.log(this.props.weapons)
+
+
+    // let analysisOverlay = ''
+    // if(this.props.targets.currentTarget === 'target_player') {
+    //   analysisOverlay = (
+    //     <div id="analysisOverlay">
+    //       <p style={{ left: 105, top: 30 }}>{hit_head}</p>
+    //       <p style={{ left: 105, top: 80 }}>{hit_chest}</p>
+    //       <p style={{ left: 130, top: 70 }}>{hit_arms}</p>
+    //       <p style={{ left: 105, top: 150 }}>{hit_legs}</p>
+    //       <p style={{ left: 50, top: 70 }}>{miss}</p>
+    //     </div>
+    //   )
+    // } else if (this.props.targets.currentTarget === 'target_archery') {
+    //   analysisOverlay = ''
+    //   // analysisOverlay = (
+    //   //   <div id="analysisOverlay">
+    //   //     archery
+    //   //   </div>
+    //   // )
+    // } else {
+    //   analysisOverlay = ''
+    //   // analysisOverlay = (
+    //   //   <div id="analysisOverlay">
+    //   //     darts
+    //   //   </div>
+    //   // )
+    // }
 
     return (
       <div
@@ -96,18 +100,10 @@ class Right extends Component {
         <div id="hoverBox-Right" onClick={this.props.LayoutChange}>{`<`}</div>
         <h2
           style={{
-          transform: lay.right
-            ? 'rotate(0deg)'
-            : 'rotate(270deg)',
-          margin: lay.right
-            ? '0 0 0 0'
-            : '110px 0 0 -40px',
-          width: lay.right
-            ? '300px'
-            : '600px',
-          height: lay.right
-            ? '35px'
-            : '50px'
+          transform: lay.right ? 'rotate(0deg)' : 'rotate(270deg)',
+          margin: lay.right ? '0 0 0 0' : '110px 0 0 -40px',
+          width: lay.right ? '300px' : '600px',
+          height: lay.right ? '35px' : '50px'
         }}>STATISTICS</h2>
 
         <div
@@ -120,12 +116,13 @@ class Right extends Component {
             </div>
 
             <div id="statCont">
+
               {this.state.stats === 's_latest' ? (
               <div id="statSubCont">
 
                 <div>
                   <p></p>
-                  <p>#</p>
+                  <p>#</p>  
                   <p>%</p>
                 </div>
 
@@ -180,7 +177,7 @@ class Right extends Component {
 
                 </div>
 
-                <div id="targetAnalysis">
+                {/* <div id="targetAnalysis">
 
                   <div id="analysisTarget">
                     <img alt='target' src={this.props.targets.currentTarget === 'target_player' ? 'https://i.imgur.com/QUC1LRp.png' : this.props.targets.currentTarget === 'target_archery' ? 'http://www.clipartbest.com/cliparts/jix/pAB/jixpABk7T.png' : 'https://i.imgur.com/l1gmoFL.png' } />
@@ -188,12 +185,50 @@ class Right extends Component {
 
                   {analysisOverlay}
 
-                </div>
+                </div> */}
 
               </div>
-              ) : (
-              <div>
-                session stats
+              ) : ( // session stats
+              <div id="statSubCont">
+
+                <div>
+                  <p></p>
+                  <p>#</p>
+                  <p>%</p>
+                </div>
+
+                <div>
+                  <p>Shots Fired:</p>
+                  <p>{ 0 }</p>
+                  <p>{  '%' }</p>
+                </div>
+
+                <div>
+                  <p>Hits:</p>
+                  <p>{ 0 }</p>
+                  <p>{  '%' }</p>
+                </div>
+
+                {/* <div>
+                  <p>{ this.props.targets.currentTarget === 'target_player' ? 'Headshots:' : 'Bullseyes:' }</p>
+                  <p>{ head }</p>
+                  <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
+                </div>
+
+                <div>
+                  <p>{ this.props.targets.currentTarget === 'target_player' ? 'Damage:' : 'Points:' }</p>
+                  <p>{ points }</p>
+                  <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
+                </div> */}
+
+                <div>
+                  weapons
+                </div>
+
+                <div>
+                  range
+                </div>
+
               </div>
                 )}
             </div>

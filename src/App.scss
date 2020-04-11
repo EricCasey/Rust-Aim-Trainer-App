@@ -587,6 +587,48 @@ body, html {
           right: 5px;
           top: 5px;
           transition: 0.7s all;
+          z-index: 100;
+          background: #21212180;
+        }
+        #foreground_fps {
+          border: 2px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 80px;
+          height: 52px;
+          left: 5px;
+          bottom: 5px;
+        }
+        #foreground_lock {
+          border-radius: 4px;
+          position: absolute;
+          width: 200px;
+          height: 50px;
+          left: 5px;
+          top: 5px;
+          transition: 0.7s all;
+          display: flex;
+          z-index: 100;
+          div {
+            height: 45px;
+            border: 1px solid #212121;
+            border-radius: 4px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            svg {
+              margin: auto;
+              height: 35px;
+              width: 35px;
+            }
+            p {
+              font-size: 10px;
+              text-align: center;
+              width: 100%;
+              height: 15px;
+              margin: auto;
+            }
+          }
         }
         #sprayMap {
           // background: green;
@@ -640,6 +682,16 @@ body, html {
           border-radius: 50%;
           z-index: 103;
         }
+        // #bluedot {
+        //   pointer-events: none;
+        //   position: absolute;
+        //   height: 10px;
+        //   width: 10px;
+        //   transition: 0.5s opacity;
+        //   background: blue;
+        //   border-radius: 50%;
+        //   z-index: 103;
+        // }
         #belt {
           // border: 1px solid white;
           width: 450px;
@@ -665,15 +717,17 @@ body, html {
         #positionDebug {
           border: 1px solid #212121;
           border-radius: 4px;
+          background: #21212180;
           position: absolute;
           width: 80px;
           right: 5px;
           top: calc(100% - 25px);
+          z-index: 100;
         }
       }
       .Foreground:hover {
         cursor: help;
-        cursor: none;
+        // cursor: none;
       }
       .Background {
         // background: blue;

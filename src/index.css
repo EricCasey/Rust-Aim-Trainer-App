@@ -570,7 +570,44 @@ body, html {
           height: 35px;
           right: 5px;
           top: 5px;
-          transition: 0.7s all; }
+          transition: 0.7s all;
+          z-index: 100;
+          background: #21212180; }
+        .App .Action .cursorOverlay .Foreground #foreground_fps {
+          border: 2px solid #212121;
+          border-radius: 4px;
+          position: absolute;
+          width: 80px;
+          height: 52px;
+          left: 5px;
+          bottom: 5px; }
+        .App .Action .cursorOverlay .Foreground #foreground_lock {
+          border-radius: 4px;
+          position: absolute;
+          width: 200px;
+          height: 50px;
+          left: 5px;
+          top: 5px;
+          transition: 0.7s all;
+          display: flex;
+          z-index: 100; }
+          .App .Action .cursorOverlay .Foreground #foreground_lock div {
+            height: 45px;
+            border: 1px solid #212121;
+            border-radius: 4px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap; }
+            .App .Action .cursorOverlay .Foreground #foreground_lock div svg {
+              margin: auto;
+              height: 35px;
+              width: 35px; }
+            .App .Action .cursorOverlay .Foreground #foreground_lock div p {
+              font-size: 10px;
+              text-align: center;
+              width: 100%;
+              height: 15px;
+              margin: auto; }
         .App .Action .cursorOverlay .Foreground #sprayMap {
           position: absolute;
           height: 500px;
@@ -630,13 +667,14 @@ body, html {
         .App .Action .cursorOverlay .Foreground #positionDebug {
           border: 1px solid #212121;
           border-radius: 4px;
+          background: #21212180;
           position: absolute;
           width: 80px;
           right: 5px;
-          top: calc(100% - 25px); }
+          top: calc(100% - 25px);
+          z-index: 100; }
       .App .Action .cursorOverlay .Foreground:hover {
-        cursor: help;
-        cursor: none; }
+        cursor: help; }
       .App .Action .cursorOverlay .Background {
         height: 100%;
         width: 100%;

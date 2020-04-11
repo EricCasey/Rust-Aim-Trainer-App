@@ -39,16 +39,25 @@ getPixels("https://i.imgur.com/2oLipJM.png", function(err, pixels) { box_hi_ches
 getPixels("https://i.imgur.com/LQXP4lV.png", function(err, pixels) { box_hi_legs = pixels })
 
 export default function(state = null, action) {
+
     switch (action.type) {
       case 'WEAPON_CHANGE':
-        return state
+        let reset = state
+        reset['latest'] = []
+        return reset
+
       case "TARGET_CHANGE":
-        return state
+        reset = state
+        reset['latest'] = []
+        return reset
+
       case 'OPTION_CHANGE':
-        return state
+        reset = state
+        reset['latest'] = []
+        return reset
 
       case 'LAYOUT_CHANGE':
-        let reset = state
+        reset = state
         reset['latest'] = []
         return reset
 
@@ -144,60 +153,62 @@ export default function(state = null, action) {
 
             let pixRow = inPos.y // - sqrBounds.y
 
-            // console.log(range)
+            // console.log(inPos, dims)
 
-            if(range === 'lo') {
-              let depth = (pixRow - 1) * box_lo_main.shape[0] + inPos.x
-
-              log['hit'] = box_lo_main.data[(depth * 4) + 1] > 0 ? true : false
+            if(inPos.x > 0 && inPos.x <= rangeVal && inPos.y > 0 && inPos.y <= rangeVal) {
+              // console.log("inside sqr")
+              if(range === 'lo') {
+                let depth = (pixRow - 1) * box_lo_main.shape[0] + inPos.x
   
-              // console.log(box_lo_main.data[(depth * 4) + 3])
-              // console.log(box_lo_main.data[(depth * 4) + 2])
-              // console.log(box_lo_main.data[(depth * 4) + 1])
-              // console.log(box_lo_main.data[(depth * 4) + 0])
-
-              if(box_lo_head.data[(depth * 4) + 1] > 0) {
-                type = 'head'
-              } else if(box_lo_chest.data[(depth * 4) + 1] > 0) {
-                type = 'chest'
-              } else if(box_lo_arms.data[(depth * 4) + 1] > 0) {
-                type = 'arms'
-              } else if(box_lo_legs.data[(depth * 4) + 1] > 0) {
-                type = 'legs'
-              }
-            } else if (range === 'mi') {
-              let depth = (pixRow - 1) * box_mi_main.shape[0] + inPos.x
-
-              log['hit'] = box_mi_main.data[(depth * 4) + 1] === 255 ? true : false
+                // console.log(depth)
   
-              if(box_mi_head.data[(depth * 4) + 3] > 0) {
-                type = 'head'
-              } else if(box_mi_chest.data[(depth * 4) + 1] > 0) {
-                type = 'chest'
-              } else if(box_mi_arms.data[(depth * 4) + 1] > 0) {
-                type = 'arms'
-              } else if(box_mi_legs.data[(depth * 4) + 1] > 0) {
-                type = 'legs'
-              }
-            } else if (range === 'hi') {
-              let depth = (pixRow - 1) * box_hi_main.shape[0] + inPos.x
-
-              log['hit'] = box_hi_main.data[(depth * 4) + 1] > 0 ? true : false
+                log['hit'] = box_lo_main.data[(depth * 4) + 0] + box_lo_main.data[(depth * 4) + 1] + box_lo_main.data[(depth * 4) + 2] + box_lo_main.data[(depth * 4) + 3]  > 0 
+                  ? true : false
   
-              if(box_hi_head.data[(depth * 4) + 3] > 0) {
-                type = 'head'
-              } else if(box_hi_chest.data[(depth * 4) + 1] > 0) {
-                type = 'chest'
-              } else if(box_hi_arms.data[(depth * 4) + 1] > 0) {
-                type = 'arms'
-              } else if(box_hi_legs.data[(depth * 4) + 1] > 0) {
-                type = 'legs'
+                if(box_lo_head.data[(depth * 4) + 0] + box_lo_head.data[(depth * 4) + 1]+ box_lo_head.data[(depth * 4) + 2] + box_lo_head.data[(depth * 4) + 3] > 0) {
+                  type = 'head'
+                } else if(box_lo_chest.data[(depth * 4) + 0] + box_lo_chest.data[(depth * 4) + 1] + box_lo_chest.data[(depth * 4) + 2] + box_lo_chest.data[(depth * 4) + 3] > 0) {
+                  type = 'chest'
+                } else if(box_lo_arms.data[(depth * 4) + 0] + box_lo_arms.data[(depth * 4) + 1] + box_lo_arms.data[(depth * 4) + 2] + box_lo_arms.data[(depth * 4) + 3] > 0) {
+                  type = 'arms'
+                } else if(box_lo_legs.data[(depth * 4) + 0] + box_lo_legs.data[(depth * 4) + 1] + box_lo_legs.data[(depth * 4) + 2] + box_lo_legs.data[(depth * 4) + 3] > 0) {
+                  type = 'legs'
+                }
+              } else if (range === 'mi') {
+                let depth = (pixRow - 1) * box_mi_main.shape[0] + inPos.x
+  
+                log['hit'] = box_mi_main.data[(depth * 4) + 0] + box_mi_main.data[(depth * 4) + 1] + box_mi_main.data[(depth * 4) + 2] + box_mi_main.data[(depth * 4) + 3] > 0 
+                  ? true : false
+    
+                if(box_mi_head.data[(depth * 4) + 0] + box_mi_head.data[(depth * 4) + 1] + box_mi_head.data[(depth * 4) + 2] + box_mi_head.data[(depth * 4) + 3] > 0) {
+                  type = 'head'
+                } else if(box_mi_chest.data[(depth * 4) + 0] + box_mi_chest.data[(depth * 4) + 1] + box_mi_chest.data[(depth * 4) + 2] + box_mi_chest.data[(depth * 4) + 3] > 0) {
+                  type = 'chest'
+                } else if(box_mi_arms.data[(depth * 4) + 0] + box_mi_arms.data[(depth * 4) + 1] + box_mi_arms.data[(depth * 4) + 2] + box_mi_arms.data[(depth * 4) + 3] > 0) {
+                  type = 'arms'
+                } else if(box_mi_legs.data[(depth * 4) + 0] + box_mi_legs.data[(depth * 4) + 1] + box_mi_legs.data[(depth * 4) + 2] + box_mi_legs.data[(depth * 4) + 3] > 0) {
+                  type = 'legs'
+                }
+              } else if (range === 'hi') {
+                let depth = (pixRow - 1) * box_hi_main.shape[0] + inPos.x
+  
+                log['hit'] = box_hi_main.data[(depth * 4) + 0] + box_hi_main.data[(depth * 4) + 1] + box_hi_main.data[(depth * 4) + 2] + box_hi_main.data[(depth * 4) + 3] > 0 ? true : false
+    
+                if(box_hi_head.data[(depth * 4) + 0] + box_hi_head.data[(depth * 4) + 1] + box_hi_head.data[(depth * 4) + 2] + box_hi_head.data[(depth * 4) + 3] > 0) {
+                  type = 'head'
+                } else if(box_hi_chest.data[(depth * 4) + 0] + box_hi_chest.data[(depth * 4) + 1] + box_hi_chest.data[(depth * 4) + 2] + box_hi_chest.data[(depth * 4) + 3] > 0) {
+                  type = 'chest'
+                } else if(box_hi_arms.data[(depth * 4) + 0] + box_hi_arms.data[(depth * 4) + 1] + box_hi_arms.data[(depth * 4) + 2] + box_hi_arms.data[(depth * 4) + 3] > 0) {
+                  type = 'arms'
+                } else if(box_hi_legs.data[(depth * 4) + 0] + box_hi_legs.data[(depth * 4) + 1] + box_hi_legs.data[(depth * 4) + 2] + box_hi_legs.data[(depth * 4) + 3] > 0) {
+                  type = 'legs'
+                }
+              } else {
+                console.log("else")
               }
             } else {
-              console.log("else")
+              // console.log('outside sqr')
             }
-
-
 
 
             log['points'] = type === 'miss' ? 0 : WeaponStats[log.weapon][`damage_${type}`]
