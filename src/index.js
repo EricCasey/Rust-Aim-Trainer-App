@@ -13,6 +13,10 @@ import ReduxPromise from 'redux-promise';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './rr_reducers';
 
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-80545425-3');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(

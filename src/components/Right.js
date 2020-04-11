@@ -55,8 +55,57 @@ class Right extends Component {
       return ''
     })
 
-    console.log(this.props.history.latest)
+    let maxScore = this.props.targets.currentTarget === 'target_player' 
+      ? WeaponStats[weapon].damage_head * WeaponStats[weapon].magSize 
+      : this.props.targets.currentTarget === 'target_darts' 
+        ? WeaponStats[weapon].magSize * 60
+        : WeaponStats[weapon].magSize * 10
+
+    console.log(this.props.history)
     console.log(this.props.weapons)
+    console.log(WeaponStats[weapon])
+
+    // console.log("max possible score")
+    // console.log(WeaponStats[weapon].magSize)
+    // console.log(WeaponStats[weapon].damage_head)
+    // console.log(maxScore)
+
+    console.log(this.props.history.overall)
+
+    // dims: {width: 750, height: 646}
+    // hit: true
+    // mousePos: {x: 359, y: 409}
+    // points: 35
+    // recoil: {x: 0, y: 0}
+    // shotNum: 0
+    // topLeft: {x: 200, y: 148, size: 350, center: {…}}
+    // type: "legs"
+    // weapon: "AK47"
+
+    let o_hits = 0
+    let o_shots = 0
+    let o_points = 0
+    let o_crit = 0
+
+    Object.keys(this.props.history.overall).map((range, i) => {
+      let hist = this.props.history.overall[range]
+
+      console.log(range)
+      console.log(hist)
+      hist.map((shot, i) => {
+        console.log(shot)
+
+        o_shots += 1
+        o_points += shot.points
+        if(shot.hit) {
+          o_hits += 1
+        }
+        if(shot.type === 'headshot' || shot.type === 'bullseye') {
+          o_crit += 1
+        }
+      })
+    })
+
 
 
     // let analysisOverlay = ''
@@ -85,6 +134,7 @@ class Right extends Component {
     //   //   </div>
     //   // )
     // }
+
 
     return (
       <div
@@ -120,35 +170,39 @@ class Right extends Component {
               {this.state.stats === 's_latest' ? (
               <div id="statSubCont">
 
-                <div>
+                <h3>Summary</h3>
+
+                <div className="three_wide">
                   <p></p>
                   <p>#</p>  
                   <p>%</p>
                 </div>
 
-                <div>
+                <div className="three_wide">
                   <p>Shots Fired:</p>
                   <p>{ this.props.history.latest.length }</p>
                   <p>{ Math.round( ( this.props.history.latest.length / WeaponStats[weapon].magSize ) * 100 ) + '%' }</p>
                 </div>
 
-                <div>
+                <div className="three_wide">
                   <p>Hits:</p>
                   <p>{ hits }</p>
                   <p>{ Math.round( ( hits / this.props.history.latest.length ) * 100 ) + '%' }</p>
                 </div>
 
-                <div>
+                <div className="three_wide">
                   <p>{ this.props.targets.currentTarget === 'target_player' ? 'Headshots:' : 'Bullseyes:' }</p>
                   <p>{ head }</p>
                   <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
                 </div>
 
-                <div>
+                <div className="three_wide">
                   <p>{ this.props.targets.currentTarget === 'target_player' ? 'Damage:' : 'Points:' }</p>
                   <p>{ points }</p>
-                  <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
+                  <p>{ Math.round( ( points / maxScore ) * 100 ) + '%' }</p>
                 </div>
+
+                <h3>Spray Track</h3>
 
                 <div id="sprayTrack">
 
@@ -166,14 +220,35 @@ class Right extends Component {
                     })}
                   </div>
 
+                  <h3>Ammo Usage</h3>
+
                   <div id="sprayTrack_mag">
                     <div style={{
                       background: 'white',
                       width: `${( this.props.history.latest.length / WeaponStats[weapon].magSize ) * 100}%`,
                       transition: '0.2s all',
-                      marginLeft: 0
+                      marginLeft: 0,
+                      opacity: '0.9'
                     }}></div>
                   </div>
+
+                  <h3>Difficulty</h3>
+
+                  <div className="three_wide">
+                    <p>Fire Rate</p>
+                    <p>Randomness</p>
+                    <p>Range</p>
+                  </div>
+
+                  <div className="three_wide">
+                    <p>{this.props.options.o_fireRate}</p>
+                    <p>{this.props.options.o_randomness}</p>
+                    <p>{this.props.targets.range}</p>
+                  </div>
+
+                  <h3>This Weapon</h3>
+
+                  <div id="currentWeaponStats">stats for {weapon}</div>
 
                 </div>
 
@@ -191,43 +266,91 @@ class Right extends Component {
               ) : ( // session stats
               <div id="statSubCont">
 
-                <div>
+                <h3>Summary</h3>
+
+                <div className="three_wide">
                   <p></p>
                   <p>#</p>
                   <p>%</p>
                 </div>
 
-                <div>
-                  <p>Shots Fired:</p>
-                  <p>{ 0 }</p>
-                  <p>{  '%' }</p>
-                </div>
-
-                <div>
+                <div className="three_wide">
                   <p>Hits:</p>
-                  <p>{ 0 }</p>
-                  <p>{  '%' }</p>
+                  <p>{ o_hits }</p>
+                  <p>{ Math.round( ( o_hits / o_shots ) * 100 ) + '%' }</p>
                 </div>
 
-                {/* <div>
-                  <p>{ this.props.targets.currentTarget === 'target_player' ? 'Headshots:' : 'Bullseyes:' }</p>
+                <div className="three_wide">
+                  <p>Headshots/othe</p>
                   <p>{ head }</p>
                   <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
                 </div>
 
-                <div>
-                  <p>{ this.props.targets.currentTarget === 'target_player' ? 'Damage:' : 'Points:' }</p>
-                  <p>{ points }</p>
+                <div className="three_wide">
+                  <p>Points:</p>
+                  <p>{ o_points }</p>
                   <p>{ Math.round( ( head / this.props.history.latest.length ) * 100 ) + '%' }</p>
-                </div> */}
-
-                <div>
-                  weapons
                 </div>
 
-                <div>
-                  range
+                <h3>Range</h3>
+
+                <div className="four_wide">
+                  <p></p>
+                  <p>Close</p>
+                  <p>Mid</p>
+                  <p>Long</p>
                 </div>
+
+                <div className="four_wide">
+                  <p>Accuracy</p>
+                  <p>0</p>
+                  <p>0</p>
+                  <p>0</p>
+                </div>
+
+                <div className="four_wide">
+                  <p>Crit %</p>
+                  <p>0</p>
+                  <p>0</p>
+                  <p>0</p>
+                </div>
+
+                <h3>Targets</h3>
+
+                <div className="four_wide centered">
+                  <p></p>
+                  <p>Archery</p>
+                  <p>Darts</p>
+                  <p>Player</p>
+                </div>
+
+                <div className="four_wide centered">
+                  <p>Accuracy</p>
+                  <p>0</p>
+                  <p>0</p>
+                  <p>0</p>
+                </div>
+
+                <div className="four_wide centered">
+                  <p>Crit %</p>
+                  <p>0</p>
+                  <p>0</p>
+                  <p>0</p>
+                </div>
+
+                <h3>Weapons</h3>
+
+                <div id="weaponStatCont">
+                  {Object.keys(WeaponStats).map((key, i) => {
+                    return (
+                      <div key={i} className="gunStat">
+                        {key}
+                      </div>
+                    )
+                  })}
+                </div>
+
+
 
               </div>
                 )}
@@ -249,7 +372,8 @@ function mapStateToProps(state) {
     layout: state.layout,
     history: state.history,
     weapons: state.weapons,
-    targets: state.targets
+    targets: state.targets,
+    options: state.options
   };
 }
 

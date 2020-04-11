@@ -329,6 +329,7 @@ class Foreground extends Component {
 
         <div id="foreground_score">
           <h2>SCORE: {points}</h2>
+          <h1>HES HACKING! HE'S 100% HACKING, 2hrs ON THE ACCOUNT I TOLD YOU! I'M REPORTING HIM</h1>
         </div>
 
         <div id="foreground_fps">

@@ -388,23 +388,64 @@ body, html {
         #statSubCont {
           // border: 1px solid red;
           width: 100%;
-          height: 100%;
+          height: calc(100% - 36px);
           display: flex;
           flex-wrap: wrap;
           align-content: flex-start;
-          div {
-            border-bottom: 1px solid $alt-border-color;
-            // border-radius: 4px;
-            width: 98%;
-            margin: 4px auto;
-            display: flex;
+          overflow: scroll;
+          h3 {
+            width: 90%;
+            margin: 5px auto;
+            border-bottom: 1px solid white;
+          }
+          .three_wide {
             p {
               margin: auto;
               width: 30%;
             }
             p:first-child {
-              // border: 1px solid blue;
               text-align: right;
+            }
+          }
+          .four_wide {
+            p {
+              margin: auto;
+              width: 23%;
+            }
+            p:first-child {
+              text-align: right;
+            }
+          }
+          div {
+            width: 98%;
+            display: flex;
+            margin: 4px auto;
+            border-bottom: 1px solid $alt-border-color;
+          }
+          .four_wide .centered {
+            p {
+              text-align: center;
+            }
+          }
+          #currentWeaponStats {
+            border: 1px solid red;
+            border-radius: 4px;
+            height: 180px;
+          }
+          #weaponStatCont {
+            // border: 1px solid red;
+            height: 167px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: scroll;
+            padding-left: 5px;
+            .gunStat {
+              width: 98%;
+              height: 150px;
+              border: 1px solid #212121;
+              border-radius: 4px;
+              margin: 5px auto;
             }
           }
           #sprayTrack {
@@ -589,6 +630,8 @@ body, html {
           transition: 0.7s all;
           z-index: 100;
           background: #21212180;
+          overflow: hidden;
+          pointer-events: none;
         }
         #foreground_fps {
           border: 2px solid #212121;
