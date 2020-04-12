@@ -934,7 +934,8 @@ body, html {
           width: 220px;
           transition: 0.5s opacity;
           z-index: 104;
-          filter: brightness(0) invert(1); }
+          filter: brightness(0) invert(1);
+          pointer-events: none; }
         .App .Action .cursorOverlay .Foreground #belt {
           width: 450px;
           height: 75px;
@@ -1048,6 +1049,26 @@ body, html {
     -webkit-box-shadow: inset 10px 0px 20px -5px rgba(0, 255, 26, 0.88);
     box-shadow: inset 10px 0px 20px -5px rgba(0, 255, 26, 0.88);
     transition: 0.7s all; }
+
+#mobileMask {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  z-index: 200;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none; }
+  #mobileMask h3 {
+    margin: auto;
+    width: 90%;
+    color: lightgreen;
+    text-align: center; }
+
+@media (max-width: 500px) {
+  #mobileMask {
+    opacity: 0.8; } }
 
 @keyframes App-logo-spin {
   from {

@@ -36,14 +36,27 @@ class App extends Component {
     // console.log(this.state.layout)
     return (
         <div className="App">
+
           <Head />
           <Left />
           <Right />
           <Foot />
           <Action />
+
           <KeyboardEventHandler
             handleKeys={['1','2','3','4','5','6']}
             onKeyEvent={this.handleBelt} />
+
+          <div id="mobileMask">
+
+            <h3>
+              Sorry, I haven't set this up for Mobile 
+              <br/>
+              Please try it out on your PC
+            </h3>
+
+          </div>
+
         </div>
     );
   }
