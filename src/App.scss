@@ -1008,6 +1008,7 @@ body, html {
           transition: 0.5s opacity;
           z-index: 104;
           filter: brightness(0) invert(1);
+          pointer-events: none;
           // mix-blend-mode: difference;
         }
         // #bluedot {
