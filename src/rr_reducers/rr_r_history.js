@@ -62,7 +62,7 @@ export default function(state = null, action) {
         return reset
 
       case 'FIRE_WEAPON':
-        console.log("FIRE WEAPON EVENT")
+        // console.log("FIRE WEAPON EVENT")
         
         let target = action.payload.target
         let update = state
@@ -97,7 +97,7 @@ export default function(state = null, action) {
         if(target === 'target_archery' || target === 'target_darts') {
 
           if(target === 'target_archery') {
-            console.log("TARGET - ARCHERY")
+            // console.log("TARGET - ARCHERY")
 
             distance = Math.sqrt(Math.pow(((mousePos.x - recoil.x) - (dims.width / 2)), 2) + Math.pow(((mousePos.y - recoil.y) - (dims.height / 2)), 2));
             points = Math.ceil( ( 1 - ( distance / ( rangeVal / 2 ) ) ) * 10 )
@@ -107,7 +107,7 @@ export default function(state = null, action) {
             log['type'] = points === 10 ? 'bullseye' : points < 1 ? 'miss' : 'hit'
 
           } else if (target === 'target_darts') {
-            console.log("TARGET - DARTS") 
+            // console.log("TARGET - DARTS") 
 
             distance = Math.sqrt(Math.pow(((mousePos.x - recoil.x) - (dims.width / 2)), 2) + Math.pow(((mousePos.y - recoil.y) - (dims.height / 2)), 2));
 
@@ -137,7 +137,7 @@ export default function(state = null, action) {
           }
 
         } else if(target === 'target_player') {
-            console.log("TARGET - PLAYER")
+            // console.log("TARGET - PLAYER")
             // console.log(box_main)
             // console.log(box_main.shape)
             // console.log("Recoil", recoil)
@@ -204,7 +204,7 @@ export default function(state = null, action) {
                   type = 'legs'
                 }
               } else {
-                console.log("else")
+                // console.log("else")
               }
             } else {
               // console.log('outside sqr')

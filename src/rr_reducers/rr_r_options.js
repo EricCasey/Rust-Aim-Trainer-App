@@ -13,8 +13,8 @@ export default function(state = null, action) {
         return state
       
       case 'OPTION_CHANGE':
-        console.log("OPTION CHANGE")
-        console.log(action.payload.target.id)
+        // console.log("OPTION CHANGE")
+        // console.log(action.payload.target.id)
         let update = state
 
         if(action.payload.target.id === 'o_fireRate' || action.payload.target.id === 'o_randomness') {
@@ -31,14 +31,14 @@ export default function(state = null, action) {
 
       case '@@redux/INIT':
         return {
-          o_snake: true,
+          o_snake: false,
           o_guide: false,
-          o_hitbox: true,
+          o_hitbox: false,
           o_opacity: false,
           o_weapon: false,
           o_silhouette: false,
           o_crosshair: false,
-          o_reddot: true,
+          o_reddot: false,
           o_target_opacity: false,
           o_target_hidden: false,
           o_fireRate: 100,
@@ -46,14 +46,14 @@ export default function(state = null, action) {
         }
       default:
         return {
-          o_snake: true,
+          o_snake: false,
           o_guide: false,
-          o_hitbox: true,
+          o_hitbox: false,
           o_opacity: false,
           o_weapon: false,
           o_silhouette: false,
           o_crosshair: false,
-          o_reddot: true,
+          o_reddot: false,
           o_target_opacity: false,
           o_target_hidden: false,
           o_fireRate: 100,

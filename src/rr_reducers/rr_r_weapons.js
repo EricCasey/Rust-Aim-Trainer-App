@@ -14,56 +14,67 @@ export default function(state = null, action) {
 
 
       case 'WEAPON_CHANGE':
-        console.log("WEAPON_CHANGE", action.payload.target.id)
-        console.log(state)
+        // console.log("WEAPON_CHANGE", action.payload)
+        // console.log(state)
 
-        if(action.payload.target.id === 'weaponPrev') {
-          if(state.currentWeapon === 1) {
-            return {
-              currentWeapon: 6,
-              attachMuzzle: state.attachMuzzle
+        if(Number.isInteger(Number(action.payload))) {
+          return {
+            currentWeapon: Number(action.payload),
+            attachMuzzle: state.attachMuzzle
+          }
+        } else {
+
+          if(action.payload.target.id === 'weaponPrev') {
+            if(state.currentWeapon === 1) {
+              return {
+                currentWeapon: 6,
+                attachMuzzle: state.attachMuzzle
+              }
+            } else {
+              return {
+                currentWeapon: state.currentWeapon - 1,
+                attachMuzzle: state.attachMuzzle
+              }
+            }
+          } else if (action.payload.target.id === 'weaponNext') {
+            if(state.currentWeapon === 6) {
+              return {
+                currentWeapon: 1,
+                attachMuzzle: state.attachMuzzle
+              }
+            } else {
+              return {
+                currentWeapon: state.currentWeapon + 1,
+                attachMuzzle: state.attachMuzzle
+              }
+            }
+          } else if (action.payload.target.id.split("_")[0] === 'attach') {
+            // console.log("attachment change")
+          // attach_silencer
+            if(state.attachMuzzle === action.payload.target.id) {
+              // console.log("dequip")
+              return {
+                currentWeapon: state.currentWeapon,
+                attachMuzzle: ''
+              }
+            } else {
+              // console.log("equip")
+              return {
+                currentWeapon: state.currentWeapon,
+                attachMuzzle: action.payload.target.id
+              }
             }
           } else {
-            return {
-              currentWeapon: state.currentWeapon - 1,
-              attachMuzzle: state.attachMuzzle
-            }
-          }
-        } else if (action.payload.target.id === 'weaponNext') {
-          if(state.currentWeapon === 6) {
+            // console.log("something else, returning default")
             return {
               currentWeapon: 1,
               attachMuzzle: state.attachMuzzle
             }
-          } else {
-            return {
-              currentWeapon: state.currentWeapon + 1,
-              attachMuzzle: state.attachMuzzle
-            }
           }
-        } else if (action.payload.target.id.split("_")[0] === 'attach') {
-          console.log("attachment change")
-        // attach_silencer
-          if(state.attachMuzzle === action.payload.target.id) {
-            console.log("dequip")
-            return {
-              currentWeapon: state.currentWeapon,
-              attachMuzzle: ''
-            }
-          } else {
-            console.log("equip")
-            return {
-              currentWeapon: state.currentWeapon,
-              attachMuzzle: action.payload.target.id
-            }
-          }
-        } else {
-          console.log("something else, returning default")
-          return {
-            currentWeapon: 1,
-            attachMuzzle: state.attachMuzzle
-          }
+
         }
+
+
       
       
 

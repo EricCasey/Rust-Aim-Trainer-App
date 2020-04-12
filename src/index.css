@@ -35,15 +35,39 @@ body, html {
       width: 40px;
       height: 34px;
       filter: invert(1); }
-    .App .Head h5 {
+    .App .Head #header_bar {
       margin: 0;
       height: 36px;
       align-items: center;
       color: white;
       font-size: 28px;
       border-bottom: 1px solid #212121;
-      width: calc(100% - 10px);
-      transition: 0.7s all; }
+      transition: 0.7s all;
+      display: flex; }
+      .App .Head #header_bar h5 {
+        height: 36px;
+        margin: auto;
+        font-size: 28px;
+        margin-left: 0; }
+      .App .Head #header_bar #head_logo {
+        height: 36px;
+        width: 150px;
+        display: flex; }
+        .App .Head #header_bar #head_logo a {
+          display: flex;
+          width: 100%;
+          height: 100%; }
+          .App .Head #header_bar #head_logo a p {
+            width: 50px;
+            font-size: 10px;
+            text-align: center;
+            padding-top: 10px;
+            color: white; }
+          .App .Head #header_bar #head_logo a img {
+            height: 50px;
+            width: 125px;
+            margin: auto;
+            margin-top: -7px; }
     .App .Head #tricksCont {
       width: 100%;
       height: calc(260px);
@@ -126,7 +150,25 @@ body, html {
               border: 1px solid lightgreen;
               width: 25%;
               height: 70%;
-              margin: auto; }
+              margin: auto;
+              transition: 0.7s all; }
+              .App .Left #leftCont #leftList .leftO .targetSelect .targetOption p,
+              .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption p,
+              .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption p,
+              .App .Left #leftCont #leftList .leftO .targetSelect .optionOption p,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption p,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption p,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption p,
+              .App .Left #leftCont #leftList .leftO .attachmentSelect .optionOption p,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption p,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption p,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption p,
+              .App .Left #leftCont #leftList .leftO .rangeSelect .optionOption p,
+              .App .Left #leftCont #leftList .leftO .optionSelect .targetOption p,
+              .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption p,
+              .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption p,
+              .App .Left #leftCont #leftList .leftO .optionSelect .optionOption p {
+                transition: 0.7s all; }
             .App .Left #leftCont #leftList .leftO .targetSelect .optionOption,
             .App .Left #leftCont #leftList .leftO .attachmentSelect .optionOption,
             .App .Left #leftCont #leftList .leftO .rangeSelect .optionOption,
@@ -265,6 +307,32 @@ body, html {
                 .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover div p {
                   opacity: 1;
                   pointer-events: none; }
+                .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .targetSelect .targetOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .optionSelect .targetOption:hover div .optionImgCont,
+                .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover div .optionImgCont {
+                  background: red; }
+                  .App .Left #leftCont #leftList .leftO .targetSelect .attachmentOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .targetSelect .targetOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .targetSelect .rangeOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .attachmentSelect .attachmentOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .attachmentSelect .targetOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .attachmentSelect .rangeOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .rangeSelect .attachmentOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .rangeSelect .targetOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .rangeSelect .rangeOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .optionSelect .attachmentOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .optionSelect .targetOption:hover div .optionImgCont img,
+                  .App .Left #leftCont #leftList .leftO .optionSelect .rangeOption:hover div .optionImgCont img {
+                    opacity: 0; }
         .App .Left #leftCont #leftList .left_weapons {
           height: 300px; }
           .App .Left #leftCont #leftList .left_weapons #weaponSide {
@@ -335,9 +403,10 @@ body, html {
                     border-radius: 4px;
                     overflow: hidden; }
                     .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #weaponGraphs .graphCont .barChart .bar {
-                      height: 100%;
+                      height: 90%;
                       background: lightgreen;
-                      transition: 0.7s all; }
+                      transition: 0.7s all;
+                      opacity: 0.8; }
               .App .Left #leftCont #leftList .left_weapons #weaponStats #weaponGraphCont #playerModel {
                 height: 100%;
                 width: 20%;
@@ -439,9 +508,75 @@ body, html {
           .App .Right #rightList #statCont #statSubCont .four_wide .centered p {
             text-align: center; }
           .App .Right #rightList #statCont #statSubCont #currentWeaponStats {
-            border: 1px solid red;
             border-radius: 4px;
-            height: 180px; }
+            height: 180px;
+            border: none; }
+            .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat {
+              width: 98%;
+              height: 150px;
+              border: 1px solid #212121;
+              border-radius: 4px;
+              margin: 5px auto;
+              display: flex;
+              flex-wrap: wrap; }
+              .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat h5 {
+                width: 90%;
+                height: 20px;
+                border-bottom: 1px solid #212121;
+                margin: 0 auto; }
+              .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_half {
+                width: 45%;
+                margin: 5px auto;
+                height: 50px;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap; }
+                .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_half h6 {
+                  border-bottom: 1px solid white;
+                  width: 90%;
+                  margin: 0 auto;
+                  height: 15px; }
+                .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_half p {
+                  width: 90%;
+                  margin: 0 auto; }
+              .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar {
+                width: 95%;
+                height: 50px;
+                margin: 5px auto;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap; }
+                .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar .gunStat_barA {
+                  width: 100%;
+                  height: 70%;
+                  margin: 0 auto;
+                  display: flex; }
+                  .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar .gunStat_barA .shot_bar {
+                    border: 1px solid black;
+                    font-size: 5px;
+                    height: 100%;
+                    margin: 0 auto;
+                    border-bottom: none; }
+                    .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar .gunStat_barA .shot_bar .shot_bar_bar {
+                      transition: 0.4s all;
+                      width: 100%;
+                      margin-top: auto;
+                      border-bottom: none;
+                      margin-bottom: 0; }
+                .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar .gunStat_barB {
+                  border: none;
+                  width: 100%;
+                  height: 30%;
+                  margin: 0 auto;
+                  display: flex; }
+                  .App .Right #rightList #statCont #statSubCont #currentWeaponStats .gunStat .gunStat_bar .gunStat_barB p {
+                    font-size: 10px;
+                    text-align: center;
+                    margin: auto;
+                    height: 20px;
+                    width: 20px; }
           .App .Right #rightList #statCont #statSubCont #weaponStatCont {
             height: 167px;
             width: 100%;
@@ -454,7 +589,68 @@ body, html {
               height: 150px;
               border: 1px solid #212121;
               border-radius: 4px;
-              margin: 5px auto; }
+              margin: 5px auto;
+              display: flex;
+              flex-wrap: wrap; }
+              .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat h5 {
+                width: 90%;
+                height: 20px;
+                border-bottom: 1px solid #212121;
+                margin: 0 auto; }
+              .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_half {
+                width: 45%;
+                margin: 5px auto;
+                height: 50px;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap; }
+                .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_half h6 {
+                  border-bottom: 1px solid white;
+                  width: 90%;
+                  margin: 0 auto;
+                  height: 15px; }
+                .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_half p {
+                  width: 90%;
+                  margin: 0 auto; }
+              .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar {
+                width: 95%;
+                height: 50px;
+                margin: 5px auto;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap; }
+                .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar .gunStat_barA {
+                  width: 100%;
+                  height: 70%;
+                  margin: 0 auto;
+                  display: flex; }
+                  .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar .gunStat_barA .shot_bar {
+                    border: 1px solid black;
+                    font-size: 5px;
+                    height: 100%;
+                    margin: 0 auto;
+                    border-bottom: none; }
+                    .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar .gunStat_barA .shot_bar .shot_bar_bar {
+                      background: red;
+                      transition: 0.4s all;
+                      width: 100%;
+                      margin-top: auto;
+                      border-bottom: none;
+                      margin-bottom: 0; }
+                .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar .gunStat_barB {
+                  border: none;
+                  width: 100%;
+                  height: 30%;
+                  margin: 0 auto;
+                  display: flex; }
+                  .App .Right #rightList #statCont #statSubCont #weaponStatCont .gunStat .gunStat_bar .gunStat_barB p {
+                    font-size: 10px;
+                    text-align: center;
+                    margin: auto;
+                    height: 20px;
+                    width: 20px; }
           .App .Right #rightList #statCont #statSubCont #sprayTrack {
             height: 50px;
             display: flex;
@@ -526,12 +722,14 @@ body, html {
         margin: auto;
         border: 1px solid #21212180;
         border-radius: 4px;
-        color: white; }
+        color: white;
+        overflow: hidden; }
         .App .Foot #aboutCont .triple h3 {
           width: 100%;
           border-bottom: white;
           margin: auto;
-          text-align: center; }
+          text-align: center;
+          border-bottom: 1px solid #212121; }
         .App .Foot #aboutCont .triple #shopArea {
           height: 100%;
           width: 100%;
@@ -548,24 +746,33 @@ body, html {
             margin-bottom: 15px;
             display: flex;
             flex-wrap: wrap;
-            padding: 3px; }
-            .App .Foot #aboutCont .triple #shopArea .affiliateArea h4 {
-              border-bottom: 1px solid #212121;
+            padding: 3px;
+            transition: 0.5s all;
+            color: white; }
+            .App .Foot #aboutCont .triple #shopArea .affiliateArea a {
+              height: 100%;
               width: 100%;
-              padding-left: 5px;
-              margin-bottom: 0;
-              height: 25px; }
-            .App .Foot #aboutCont .triple #shopArea .affiliateArea p {
-              height: 40px;
-              width: 98%;
-              margin: 0 auto;
-              font-style: italic; }
-            .App .Foot #aboutCont .triple #shopArea .affiliateArea img {
-              border: 2px solid #212121;
-              border-radius: 4px;
-              margin: auto;
-              height: 100px;
-              width: 133px; }
+              display: flex;
+              flex-wrap: wrap; }
+              .App .Foot #aboutCont .triple #shopArea .affiliateArea a h4 {
+                border-bottom: 1px solid #212121;
+                width: 100%;
+                padding-left: 5px;
+                margin-bottom: 0;
+                height: 25px;
+                color: white; }
+              .App .Foot #aboutCont .triple #shopArea .affiliateArea a p {
+                height: 40px;
+                width: 98%;
+                margin: 0 auto;
+                font-style: italic;
+                color: white; }
+              .App .Foot #aboutCont .triple #shopArea .affiliateArea a img {
+                border: 2px solid #212121;
+                border-radius: 4px;
+                margin: auto;
+                height: 100px;
+                width: 133px; }
           .App .Foot #aboutCont .triple #shopArea .affiliateArea:hover {
             border-color: white;
             transition: 0.5s all; }
@@ -574,6 +781,49 @@ body, html {
           height: calc(100% - 20px);
           overflow: scroll;
           padding: 5px; }
+      .App .Foot #aboutCont #contact_triple {
+        display: flex;
+        flex-wrap: wrap; }
+        .App .Foot #aboutCont #contact_triple h4 {
+          margin: 15px auto 0 auto;
+          height: 20px; }
+        .App .Foot #aboutCont #contact_triple a {
+          height: 60px;
+          width: 150px;
+          margin: 0 auto; }
+          .App .Foot #aboutCont #contact_triple a img {
+            height: 60px;
+            width: 150px;
+            margin: 0 auto; }
+        .App .Foot #aboutCont #contact_triple p {
+          width: 90%;
+          height: 40px;
+          text-align: center;
+          margin: 0 auto; }
+        .App .Foot #aboutCont #contact_triple #socialZone {
+          width: 100%;
+          height: calc(100% - 170px);
+          margin: 0 auto;
+          display: flex; }
+          .App .Foot #aboutCont #contact_triple #socialZone .socialLink {
+            height: 90%;
+            width: 28%;
+            margin: auto;
+            border: 1px solid #212121;
+            background: #21212180;
+            border-radius: 4px; }
+            .App .Foot #aboutCont #contact_triple #socialZone .socialLink a {
+              height: 100%;
+              width: 100%;
+              display: flex; }
+              .App .Foot #aboutCont #contact_triple #socialZone .socialLink a img {
+                height: 45px;
+                width: 45px;
+                margin: auto;
+                pointer-events: none; }
+          .App .Foot #aboutCont #contact_triple #socialZone .socialLink:hover {
+            border-color: white;
+            transition: 0.7s all; }
   .App .Action {
     left: 39px;
     top: 38px;
@@ -621,7 +871,8 @@ body, html {
           top: 5px;
           transition: 0.7s all;
           display: flex;
-          z-index: 100; }
+          z-index: 100;
+          background: #21212180; }
           .App .Action .cursorOverlay .Foreground #foreground_lock div {
             height: 45px;
             border: 1px solid #212121;
@@ -677,6 +928,13 @@ body, html {
           background: red;
           border-radius: 50%;
           z-index: 103; }
+        .App .Action .cursorOverlay .Foreground #crosshair {
+          position: absolute;
+          height: 165px;
+          width: 220px;
+          transition: 0.5s opacity;
+          z-index: 104;
+          filter: brightness(0) invert(1); }
         .App .Action .cursorOverlay .Foreground #belt {
           width: 450px;
           height: 75px;
@@ -690,7 +948,22 @@ body, html {
             width: 70px;
             margin: auto;
             transition: 0.3s all;
-            border-radius: 2px; }
+            border-radius: 2px;
+            overflow: hidden; }
+            .App .Action .cursorOverlay .Foreground #belt .beltSlot .weaponHealth {
+              position: absolute;
+              height: 70px;
+              width: 4px;
+              background: green;
+              opacity: 0.5; }
+            .App .Action .cursorOverlay .Foreground #belt .beltSlot .weaponAmmo {
+              position: absolute;
+              font-size: 10px;
+              height: 15px;
+              width: 15px;
+              top: 55px;
+              margin-left: 53px;
+              color: white; }
             .App .Action .cursorOverlay .Foreground #belt .beltSlot img {
               height: 65px;
               width: 65px;

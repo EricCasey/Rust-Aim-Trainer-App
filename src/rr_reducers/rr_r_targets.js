@@ -13,8 +13,8 @@ export default function(state = null, action) {
         return state
 
       case 'TARGET_CHANGE':
-        console.log("target change! do something here")
-        console.log(action.payload.target.id)
+        // console.log("target change! do something here")
+        // console.log(action.payload.target.id)
         let targetType = ''
 
         if(action.payload.target.id.split("_")[0] === 'target') {
@@ -29,7 +29,7 @@ export default function(state = null, action) {
             moving: state.moving
           }
         } else if(action.payload.target.id.split("_")[0] === 'range') {
-          console.log("range change!")
+          // console.log("range change!")
           return {
             range: action.payload.target.id.split("_")[1],
             currentTarget: state.currentTarget,
@@ -39,17 +39,17 @@ export default function(state = null, action) {
         }
 
       break; 
-      
+
       case '@@redux/INIT':
         return {
-          currentTarget: 'target_player',
+          currentTarget: 'target_archery',
           logName: 'target_static_archery',
           range: 'lo',
           moving: false
         }
       default:
         return {
-          currentTarget: 'target_player',
+          currentTarget: 'target_archery',
           logName: 'target_static_archery',
           range: 'lo',
           moving: false

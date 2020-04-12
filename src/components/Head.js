@@ -32,19 +32,32 @@ class Head extends Component {
           src={require('../img/Sleipnir.png')}
           alt="horse"
           id="hoverBox-Head"
-          onClick={this.props.LayoutChange}/>
+          // onClick={this.props.LayoutChange}
+          />
 
-        <h5
+        <div
+          id="header_bar"
           style={{
           width: this.props.layout.head
             ? 'calc(100% - 40px)'
-            : '400px',
+            : 'calc(100% - 40px)',
           fontSize: this.props.layout.head
             ? '28px'
             : '26px'
-        }}>RUST . RECOIL . MONSTER</h5>
+        }}>
+          <h5>RUST . RECOIL . MONSTER</h5>
+          <div id="head_logo">
+            <a href="https://casey.works/?utm_source=recoil_monster" target="_blank" rel="noopener noreferrer">
+              <p>By:</p>
+              {/* https://i.imgur.com/qG7Bo8s.png */}
+              {/* https://i.imgur.com/zs6OFcv.png */}
+              <img src="https://i.imgur.com/zs6OFcv.png" alt="logo"/>
+            </a>
+          </div>
+        </div>
 
-        <img src="https://i.imgur.com/qG7Bo8s.png" alt="logo"/>
+
+        
 
         <div
           id="tricksCont"

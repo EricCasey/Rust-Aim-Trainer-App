@@ -23,8 +23,8 @@ class Left extends Component {
     let weapon = Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]
     let weaponImg = WeaponStats[weapon].imageInv
 
-    console.log(WeaponStats)
-    console.log(this.props)
+    // console.log(WeaponStats)
+    // console.log(this.props)
     return (
       <div
         className="Left"
@@ -195,7 +195,7 @@ class Left extends Component {
                   id="target_archery" 
                   onClick={this.props.TargetChange}
                   style={{ border: this.props.targets.currentTarget === 'target_archery' ? '1px solid white' : '' }}>
-                  <div><p>Archery</p></div>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="target_archery" src="https://i.imgur.com/RNmXrAh.png" alt="targetImg"/>
                   </div>
@@ -206,7 +206,7 @@ class Left extends Component {
                   id="target_darts" 
                   onClick={this.props.TargetChange}
                   style={{ border: this.props.targets.currentTarget === 'target_darts' ? '1px solid white' : '' }}>
-                  <div><p>Darts</p></div>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="target_darts" src="https://i.imgur.com/RD8iWp9.png" alt="targetImg"/>
                   </div>
@@ -217,7 +217,7 @@ class Left extends Component {
                   id="target_player" 
                   onClick={this.props.TargetChange}
                   style={{ border: this.props.targets.currentTarget === 'target_player' ? '1px solid white' : '' }}>
-                  <div><p>Player</p></div>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="target_player"src="https://i.imgur.com/FezF7Oa.png" alt="targetImg"/>
                   </div>
@@ -238,8 +238,11 @@ class Left extends Component {
                   className="rangeOption" 
                   id="range_lo" 
                   onClick={this.props.TargetChange}
-                  style={{ border: this.props.targets.range === 'lo' ? '1px solid white' : '' }}>
-                  <div><p>Close</p></div>
+                  style={{ 
+                    border: this.props.targets.range === 'lo' ? '1px solid white' : '',
+                    background: this.props.targets.range === 'lo' ? '#21212180' : 'black'
+                  }}>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="range_lo" src="https://i.imgur.com/zSpKhe0.png" alt="targetImg"/>
                   </div>
@@ -249,8 +252,11 @@ class Left extends Component {
                   className="rangeOption" 
                   id="range_mi" 
                   onClick={this.props.TargetChange}
-                  style={{ border: this.props.targets.range === 'mi' ? '1px solid white' : '' }}>
-                  <div><p>Mid</p></div>
+                  style={{ 
+                    border: this.props.targets.range === 'mi' ? '1px solid white' : '',
+                    background: this.props.targets.range === 'mi' ? '#21212180' : 'black'
+                  }}>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="range_mi" src="https://i.imgur.com/MCwQUd7.png" alt="targetImg"/>
                   </div>
@@ -260,8 +266,11 @@ class Left extends Component {
                   className="rangeOption" 
                   id="range_hi" 
                   onClick={this.props.TargetChange}
-                  style={{ border: this.props.targets.range === 'hi' ? '1px solid white' : '' }}>
-                  <div><p>Long</p></div>
+                  style={{ 
+                    border: this.props.targets.range === 'hi' ? '1px solid white' : '',
+                    background: this.props.targets.range === 'hi' ? '#21212180' : 'black'
+                  }}>
+                  <div><p></p></div>
                   <div className="optionImgCont">
                     <img className="targetImg" id="range_hi" src="https://i.imgur.com/nrK2mZg.png" alt="targetImg"/>
                   </div>
@@ -277,70 +286,110 @@ class Left extends Component {
                   className="optionOption" 
                   id="o_snake" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_snake"] ? '1px solid white' : '' }}>
+                  style={{ 
+                    border: this.props.options["o_snake"] ? '1px solid white' : '',
+                    color: this.props.options["o_snake"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_snake"] ? '#21212180' : 'black'
+                  }}>
                   <p>Spray Snake</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_guide" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_guide"] ? '1px solid white' : '' }}>
+                  style={{ 
+                    border: this.props.options["o_guide"] ? '1px solid white' : '',
+                    color: this.props.options["o_guide"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_guide"] ? '#21212180' : 'black'
+                  }}>
                   <p>Spray Guide</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_hitbox" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_hitbox"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_hitbox"] ? '1px solid white' : '',
+                    color: this.props.options["o_hitbox"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_hitbox"] ? '#21212180' : 'black'
+                   }}>
                   <p>Hitboxes</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_silhouette" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_silhouette"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_silhouettle"] ? '1px solid white' : '',
+                    color: this.props.options["o_silhouette"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_silhouette"] ? '#21212180' : 'black'
+                   }}>
                   <p>Silhouette</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_crosshair" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_crosshair"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_crosshair"] ? '1px solid white' : '',
+                    color: this.props.options["o_crosshair"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_crosshair"] ? '#21212180' : 'black'
+                   }}>
                   <p>Crosshair</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_reddot" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_reddot"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_reddot"] ? '1px solid white' : '',
+                    color: this.props.options["o_reddot"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_reddot"] ? '#21212180' : 'black'
+                   }}>
                   <p>Red Dot</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_weapon" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_weapon"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_weapon"] ? '1px solid white' : '',
+                    color: this.props.options["o_weapon"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_weapon"] ? '#21212180' : 'black'
+                   }}>
                   <p>Hide Weapon</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_opacity" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_opacity"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_opacity"] ? '1px solid white' : '',
+                    color: this.props.options["o_opacity"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_opacity"] ? '#21212180' : 'black'
+                   }}>
                   <p>Weapon Opacity</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_target_hidden" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_target_hidden"] ? '1px solid white' : '' }}>
+                  style={{  
+                    border: this.props.options["o_target_hidden"] ? '1px solid white' : '',
+                    color: this.props.options["o_target_hidden"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_target_hidden"] ? '#21212180' : 'black'
+                   }}>
                   <p>Hide Target</p>
                 </div>
                 <div 
                   className="optionOption" 
                   id="o_target_opacity" 
                   onClick={this.props.OptionChange}
-                  style={{ border: this.props.options["o_target_opacity"] ? '1px solid white' : '' }}>
+                  style={{   
+                    border: this.props.options["o_target_opacity"] ? '1px solid white' : '',
+                    color: this.props.options["o_target_opacity"] ? 'white' : 'lightgreen',
+                    background: this.props.options["o_target_opacity"] ? '#21212180' : 'black'
+                    }}>
                   <p>Target Opacity</p>
                 </div>
               </div>

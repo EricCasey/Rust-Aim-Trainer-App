@@ -95,37 +95,69 @@ class Foot extends Component {
               ironside = https://ironsidecomputers.com/sponsorship/?v=00dc5da36527 */}
 
               <div className="affiliateArea">
-                <h4>BUY RUST</h4>
-                <p>'This is the best gave ever made.' <br/> &nbsp;&nbsp;&nbsp;- Casey_Works</p>
-                <img alt="preview" src="https://i.imgur.com/3TaLPHC.jpg" />
+                <a target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/252490/Rust/">
+                  <h4>BUY RUST</h4>
+                  <p>'This is the best game ever made.' <br/> &nbsp;&nbsp;&nbsp;- Casey_Works</p>
+                  <img alt="preview" src="https://i.imgur.com/3TaLPHC.jpg" />
+                </a>
               </div>
 
               <div className="affiliateArea">
-                <h4>BUY RUST MERCH</h4>
-                <p>Let everyone know you're a Chad.</p>
-                <img alt="preview" src="https://i.imgur.com/UINLkUN.jpg" />
+                <a target="_blank" rel="noopener noreferrer" href="https://store.facepunch.com/collections/rust">
+                  <h4>BUY RUST MERCH</h4>
+                  <p>Let everyone know you're a Chad.</p>
+                  <img alt="preview" src="https://i.imgur.com/UINLkUN.jpg" />
+                </a>
               </div>
 
               <div className="affiliateArea">
-                <h4>RUSTY RECOIL</h4>
-                <p>This is the site that inspired this site.</p>
-                <img alt="preview" src="https://i.imgur.com/UINLkUN.jpg" />
+                <a target="_blank" rel="noopener noreferrer" href="https://rustyrecoil.com/">
+                  <h4>RUSTY RECOIL</h4>
+                  <p>This is the site that inspired this site.</p>
+                  <img alt="preview" src="https://i.imgur.com/xdjWh6I.jpg" />
+                </a>
               </div>
 
-              <div className="affiliateArea">
+              {/* <div className="affiliateArea">
                 aim training servers list
               </div>
 
               <div className="affiliateArea">
                 more affiliate links here
-              </div>
+              </div> */}
 
             </div>
           </div>
-          <div className="triple">
+          <div className="triple" id="contact_triple">
             <h3>CONTACT</h3>
-            <h4>Casey_Works</h4>
-            <p></p>
+            <h4>{'Made with <3 & ReactJS by'}</h4>
+
+            <a target="_blank" rel="noopener noreferrer" href="https://casey.works/?utm_source=recoil_monster">
+              <img src="https://i.imgur.com/qG7Bo8s.png" alt="logo"/>
+            </a>
+
+            
+
+            <p>Feel free to <a href="mailto:eric@casey.works">send me an email</a> or check out some of the other junk I put on the internet:</p>
+            
+            <div id="socialZone">
+              <div className="socialLink">
+                <a href="https://www.reddit.com/user/Casey_works" target="_blank" rel="noopener noreferrer">
+                  <img alt="logo" src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-reddit-circle-512.png" />
+                </a>
+              </div>
+              <div className="socialLink">
+                <a href="https://www.twitch.tv/casey_works/" target="_blank" rel="noopener noreferrer">
+                  <img alt="logo" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpngimg.com%2Fuploads%2Ftwitch%2Ftwitch_PNG49.png&f=1&nofb=1" />
+                </a>
+              </div>
+              <div className="socialLink">
+                <a href="https://www.kaggle.com/caseyworks" target="_blank" rel="noopener noreferrer">
+                  <img alt="logo" src="https://justinlross.com.au/wp-content/uploads/2019/07/kaggle-logo.png" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

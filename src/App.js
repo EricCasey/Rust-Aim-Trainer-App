@@ -18,10 +18,18 @@ import { WeaponChange } from './rr_actions/rr_a_weaponChange';
 import { TargetChange } from './rr_actions/rr_a_targetChange';
 import { OptionChange } from './rr_actions/rr_a_optionChange';
 
+import KeyboardEventHandler from 'react-keyboard-event-handler';
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
+    this.handleBelt = this.handleBelt.bind(this);
+  }
+
+  handleBelt(key, e) {
+    // console.log("pressed: ", key)
+    this.props.WeaponChange(key)
   }
 
   render() {
@@ -33,6 +41,9 @@ class App extends Component {
           <Right />
           <Foot />
           <Action />
+          <KeyboardEventHandler
+            handleKeys={['1','2','3','4','5','6']}
+            onKeyEvent={this.handleBelt} />
         </div>
     );
   }

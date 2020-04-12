@@ -18,18 +18,20 @@ import { faUnlock } from '@fortawesome/free-solid-svg-icons'
 
 import FPSStats from "react-fps-stats";
 
-class Foreground extends Component {
 
+class Foreground extends Component {
+  // @keydown( KEYS )
   constructor(props) {
     super(props);
     this.state = {
-      time: Date.now(),
+      mag: 1,
       shot: 0,
       trap: 'trap',
       trapped: false,
+      time: Date.now(),
+      rand: { x: 0, y: 0 },
       recoil: { x: 0, y: 0 },
       trapPos: { x: 0, y: 0 },
-      rand: { x: 0, y: 0 },
       latestTrap: { x: 0, y: 0 }
     }
     this.fireHandler = this.fireHandler.bind(this);
@@ -38,14 +40,13 @@ class Foreground extends Component {
 
     this.foreground = React.createRef();
 
-  }
 
+  }
 
   componentDidMount() {
     let canvas = document.getElementById('Foreground')
     let trap = require('pointer-trap-relative')(canvas)
     this.setState({ trap })
-
   }
 
   UNSAFE_componentWillUpdate() {
@@ -114,8 +115,10 @@ class Foreground extends Component {
 
   reload() {
     // console.log("reloading")
+    let magNum = this.state.mag
     this.setState({
       shot: 0,
+      mag: magNum + 1,
       recoil: { x: 0, y: 0 },
       rand: { x: 0, y: 0 }
     })
@@ -143,13 +146,22 @@ class Foreground extends Component {
       let rand_x = 0 // (Math.floor(Math.random() * (this.props.options.o_randomness * 2) + 1) - 1) - this.props.options.o_randomness
       let rand_y = 0 // (Math.floor(Math.random() * (this.props.options.o_randomness * 2) + 1) - 1) - this.props.options.o_randomness
 
+      let maxScore = this.props.targets.currentTarget === 'target_player' 
+        ? WeaponStats[Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]].damage_head * WeaponStats[Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]].magSize 
+        : this.props.targets.currentTarget === 'target_darts' 
+          ? WeaponStats[Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]].magSize * 60
+          : WeaponStats[Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1]].magSize * 10
       // console.log(rand_x, rand_y)
+
+      // console.log(maxScore)
+
       this.setState({ rand: { x: rand_x, y: rand_y } })
 
       if(this.state.shot === 0) {
 
         // First Shot
         // console.log(this.state.trapPos)
+
         this.props.FireWeapon({
           log: {
             mousePos: {
@@ -160,7 +172,10 @@ class Foreground extends Component {
               x: gun.spraySnake[0][0] - gun.spraySnake[this.state.shot][0],
               y: gun.spraySnake[0][1] - gun.spraySnake[this.state.shot][1]
             },
+            mag: this.state.mag,
+            maxScore: maxScore,
             dims: this.props.elementDimensions,
+            target: this.props.targets.currentTarget,
             weapon: Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1],
             shotNum: this.state.shot
           }, 
@@ -218,7 +233,10 @@ class Foreground extends Component {
               y: this.props.position.y + rand_y + this.state.trapPos.y,
             },
             recoil: recoil,
+            mag: this.state.mag,
+            maxScore: maxScore,
             dims: this.props.elementDimensions,
+            target: this.props.targets.currentTarget,
             weapon: Object.keys(WeaponStats)[this.props.weapons.currentWeapon - 1],
             shotNum: this.state.shot
           }
@@ -343,7 +361,7 @@ class Foreground extends Component {
 
 
 
-        <div id="foreground_lock" style={{ border: insideForeground && !this.state.trap.trapped ? '2px solid #212121' : insideForeground ? '2px solid #212121' : '2px solid red' }}>
+        <div id="foreground_lock" style={{ border: insideForeground && !this.state.trap.trapped ? '1px solid #212121' : insideForeground ? '1px solid #212121' : '1px solid red' }}>
           <div style={{ width: '45px' }}>
             {this.state.trap.trapped ? <FontAwesomeIcon icon={faLock} /> : <FontAwesomeIcon icon={faUnlock} /> }
           </div>
@@ -396,9 +414,18 @@ class Foreground extends Component {
 
         <div id="reddot" style={{
             left: position.x - this.state.recoil.x - 1 + this.state.trapPos.x + this.state.rand.x,
-            top: position.y  - this.state.recoil.y - 1 + this.state.trapPos.y + this.state.rand.y,
+            top: position.y - this.state.recoil.y - 1 + this.state.trapPos.y + this.state.rand.y,
             opacity: this.props.options.o_reddot ? 0.9 : 0
           }}></div>
+
+
+        <div id="crosshair" style={{
+            left: position.x - this.state.recoil.x - 1 + this.state.trapPos.x + this.state.rand.x - 110.5,
+            top: position.y - this.state.recoil.y - 1 + this.state.trapPos.y + this.state.rand.y - 82,
+            opacity: this.props.options.o_crosshair ? 0.9 : 0
+          }}>
+            <img alt="crosshair" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Rangefinder_reticle_08a.svg/220px-Rangefinder_reticle_08a.svg.png"/>
+          </div>
 
 
         <div id="equippedWeapon" style={{
@@ -418,7 +445,10 @@ class Foreground extends Component {
             <div key={key} className="beltSlot" style={{
               background: weaponImg === WeaponStats[gun].imageADS ? 'blue' : '#21212180',
             }}>
+              <div className="weaponHealth"></div>
               <img src={WeaponStats[gun].imageInv} alt="gun" />
+              <div className="weaponAmmo">{
+               gun === weapon ? WeaponStats[gun].magSize - this.state.shot : WeaponStats[gun].magSize}</div>
             </div>
             )
           })}

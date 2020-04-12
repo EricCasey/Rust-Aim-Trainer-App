@@ -48,15 +48,50 @@ body, html {
       height: 34px;
       filter: invert(1);
     }
-    h5 {
+    #header_bar {
       margin: 0;
       height: 36px;
       align-items: center;
       color: $text-color;
       font-size: 28px;
       border-bottom: 1px solid $alt-border-color;
-      width: calc(100% - 10px);
       transition: 0.7s all;
+      // border: 2px solid red;
+      display: flex;
+      h5 {
+        // border: 1px solid white;
+        height: 36px;
+        margin: auto;
+        font-size: 28px;
+        margin-left: 0;
+      }
+      #head_logo {
+        height: 36px;
+        width: 150px;
+        display: flex;
+        // border: 1px solid red;
+        a {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          p {
+            width: 50px;
+            font-size: 10px;
+            text-align: center;
+            padding-top: 10px;
+            color: white;
+          }
+          img {
+            // border: 1px solid red;
+            height: 50px;
+            width: 125px;
+            margin: auto;
+            margin-top: -7px;
+          }
+        }
+
+      }
+
     }
     #tricksCont {
       //border: 1px solid blue;
@@ -137,6 +172,10 @@ body, html {
               width: 25%;
               height: 70%;
               margin: auto;
+              transition: 0.7s all;
+              p {
+                transition: 0.7s all;
+              }
             }
             .optionOption {
               width: 45%;
@@ -192,6 +231,12 @@ body, html {
                 p {
                   opacity: 1;
                   pointer-events: none;
+                }
+                .optionImgCont {
+                  background: red;
+                  img {
+                    opacity: 0;
+                  }
                 }
               }
             }
@@ -286,9 +331,10 @@ body, html {
                     border-radius: 4px;
                     overflow: hidden;
                     .bar {
-                      height: 100%;
+                      height: 90%;
                       background: $border-color;
                       transition: 0.7s all;
+                      opacity: 0.8;
                     }
                   }
                 }
@@ -428,9 +474,91 @@ body, html {
             }
           }
           #currentWeaponStats {
-            border: 1px solid red;
+            // border: 1px solid red;
             border-radius: 4px;
             height: 180px;
+            border: none;
+            .gunStat {
+              width: 98%;
+              height: 150px;
+              border: 1px solid #212121;
+              border-radius: 4px;
+              margin: 5px auto;
+              display: flex;
+              flex-wrap: wrap;
+              h5 {
+                width: 90%;
+                height: 20px;
+                border-bottom: 1px solid #212121;
+                margin: 0 auto;
+              }
+              .gunStat_half {
+                width: 45%;
+                margin: 5px auto;
+                height: 50px;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap;
+                h6 {
+                  border-bottom: 1px solid white;
+                  width: 90%;
+                  margin: 0 auto;
+                  height: 15px;
+                }
+                p {
+                  width: 90%;
+                  margin: 0 auto;
+                }
+              }
+              .gunStat_bar {
+                width: 95%;
+                height: 50px;
+                margin: 5px auto;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap;
+                .gunStat_barA {
+                  // border: 1px solid red;
+                  width: 100%;
+                  height: 70%;
+                  margin: 0 auto;
+                  display: flex;
+                  .shot_bar {
+                    border: 1px solid black;
+                    font-size: 5px;
+                    height: 100%;
+                    margin: 0 auto;
+                    border-bottom: none;
+                    .shot_bar_bar {
+                      transition: 0.4s all;
+                      width: 100%;
+                      margin-top: auto;
+                      border-bottom: none;
+                      margin-bottom: 0;
+                    }
+                  }
+                }
+                .gunStat_barB {
+                  // border: 1px solid blue;
+                  border: none;
+                  width: 100%;
+                  height: 30%;
+                  margin: 0 auto;
+                  display: flex;
+                  // justify-content: space-between;
+                  p {
+                    font-size: 10px;
+                    text-align: center;
+                    // border: 1px solid white;
+                    margin: auto;
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+              }
+            }
           }
           #weaponStatCont {
             // border: 1px solid red;
@@ -446,6 +574,81 @@ body, html {
               border: 1px solid #212121;
               border-radius: 4px;
               margin: 5px auto;
+              display: flex;
+              flex-wrap: wrap;
+              h5 {
+                width: 90%;
+                height: 20px;
+                border-bottom: 1px solid #212121;
+                margin: 0 auto;
+              }
+              .gunStat_half {
+                width: 45%;
+                margin: 5px auto;
+                height: 50px;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap;
+                h6 {
+                  border-bottom: 1px solid white;
+                  width: 90%;
+                  margin: 0 auto;
+                  height: 15px;
+                }
+                p {
+                  width: 90%;
+                  margin: 0 auto;
+                }
+              }
+              .gunStat_bar {
+                width: 95%;
+                height: 50px;
+                margin: 5px auto;
+                border: 1px solid #212121;
+                border-radius: 4px;
+                display: flex;
+                flex-wrap: wrap;
+                .gunStat_barA {
+                  // border: 1px solid red;
+                  width: 100%;
+                  height: 70%;
+                  margin: 0 auto;
+                  display: flex;
+                  .shot_bar {
+                    border: 1px solid black;
+                    font-size: 5px;
+                    height: 100%;
+                    margin: 0 auto;
+                    border-bottom: none;
+                    .shot_bar_bar {
+                      background: red;
+                      transition: 0.4s all;
+                      width: 100%;
+                      margin-top: auto;
+                      border-bottom: none;
+                      margin-bottom: 0;
+                    }
+                  }
+                }
+                .gunStat_barB {
+                  // border: 1px solid blue;
+                  border: none;
+                  width: 100%;
+                  height: 30%;
+                  margin: 0 auto;
+                  display: flex;
+                  // justify-content: space-between;
+                  p {
+                    font-size: 10px;
+                    text-align: center;
+                    // border: 1px solid white;
+                    margin: auto;
+                    height: 20px;
+                    width: 20px;
+                  }
+                }
+              }
             }
           }
           #sprayTrack {
@@ -538,11 +741,13 @@ body, html {
         border: 1px solid #21212180;
         border-radius: 4px;
         color: white;
+        overflow: hidden;
         h3 {
           width: 100%;
           border-bottom: white;
           margin: auto;
           text-align: center;
+          border-bottom: 1px solid #212121;
         }
         #shopArea {
           height: 100%;
@@ -561,27 +766,40 @@ body, html {
             display: flex;
             flex-wrap: wrap;
             padding: 3px;
-            h4 {
-              border-bottom: 1px solid #212121;
+            transition: 0.5s all;
+            color: white;
+            a {
+              height: 100%;
               width: 100%;
-              padding-left: 5px;
-              margin-bottom: 0;
-              height: 25px;
-            }
-            p {
-              // border: 1px solid blue;
-              height: 40px;
-              width: 98%;
-              margin: 0 auto;
-              font-style: italic;
-
-            }
-            img {
-              border: 2px solid #212121;
-              border-radius: 4px;
-              margin: auto;
-              height: 100px;
-              width: 133px;
+              display: flex;
+              flex-wrap: wrap;
+              // border: 1px solid red;
+              h4 {
+                border-bottom: 1px solid #212121;
+                width: 100%;
+                padding-left: 5px;
+                margin-bottom: 0;
+                height: 25px;
+                // pointer-events: none;
+                color: white;
+              }
+              p {
+                // border: 1px solid blue;
+                height: 40px;
+                width: 98%;
+                margin: 0 auto;
+                font-style: italic;
+                // pointer-events: none;
+                color: white;
+              }
+              img {
+                border: 2px solid #212121;
+                border-radius: 4px;
+                margin: auto;
+                height: 100px;
+                width: 133px;
+                // pointer-events: none;
+              }
             }
           }
           .affiliateArea:hover {
@@ -596,6 +814,62 @@ body, html {
           height: calc(100% - 20px);
           overflow: scroll;
           padding: 5px;
+        }
+      }
+      #contact_triple {
+        // border: 1px solid red;
+        display: flex;
+        flex-wrap: wrap;
+        h4 {
+          margin: 15px auto 0 auto;
+          height: 20px;
+        }
+        a {
+          height: 60px;
+          width: 150px;
+          margin: 0 auto;
+          img {
+            height: 60px;
+            width: 150px;
+            margin: 0 auto;
+          }
+        }
+        p {
+          width: 90%;
+          height: 40px;
+          text-align: center;
+          margin: 0 auto;
+        }
+        #socialZone {
+          // border: 1px solid blue;
+          width: 100%;
+          height: calc(100% - 170px);
+          margin: 0 auto;
+          display: flex;
+          .socialLink {
+            height: 90%;
+            width: 28%;
+            margin: auto;
+            border: 1px solid #212121;
+            background: #21212180;
+            border-radius: 4px;
+            a {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              img {
+                height: 45px;
+                width: 45px;
+                // border: 1px solid blue;
+                margin: auto;
+                pointer-events: none;
+              }
+            }
+          }
+          .socialLink:hover {
+            border-color: white;
+            transition: 0.7s all;
+          }
         }
       }
     }
@@ -652,6 +926,7 @@ body, html {
           transition: 0.7s all;
           display: flex;
           z-index: 100;
+          background: #21212180;
           div {
             height: 45px;
             border: 1px solid #212121;
@@ -725,6 +1000,16 @@ body, html {
           border-radius: 50%;
           z-index: 103;
         }
+        #crosshair {
+          // border: 1px solid red;
+          position: absolute;
+          height: 165px;
+          width: 220px;
+          transition: 0.5s opacity;
+          z-index: 104;
+          filter: brightness(0) invert(1);
+          // mix-blend-mode: difference;
+        }
         // #bluedot {
         //   pointer-events: none;
         //   position: absolute;
@@ -750,6 +1035,25 @@ body, html {
             margin: auto;
             transition: 0.3s all;
             border-radius: 2px;
+            overflow: hidden;
+            .weaponHealth {
+              position: absolute;
+              height: 70px;
+              width: 4px;
+              background: green;
+              opacity: 0.5;
+            }
+            .weaponAmmo {
+              // border: 1px solid white;
+              position: absolute;
+              font-size: 10px;
+              height: 15px;
+              width: 15px;
+              top: 55px;
+              margin-left: 53px;
+              color: white;
+              // left: 50px;
+            }
             img {
               height: 65px;
               width: 65px;
