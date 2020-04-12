@@ -25,7 +25,7 @@ class Background extends Component {
         <div className="bgImg bg_archery">
 
           <img 
-            src="http://www.clipartbest.com/cliparts/jix/pAB/jixpABk7T.png" 
+            src="https://i.imgur.com/gpgtrrR.png" 
             alt="target"
             style={{
               height: target_size,
