@@ -42,14 +42,14 @@ export default function(state = null, action) {
 
       case '@@redux/INIT':
         return {
-          currentTarget: 'target_player',
+          currentTarget: 'target_darts',
           logName: 'target_static_archery',
           range: 'lo',
           moving: false
         }
       default:
         return {
-          currentTarget: 'target_player',
+          currentTarget: 'target_darts',
           logName: 'target_static_archery',
           range: 'lo',
           moving: false
