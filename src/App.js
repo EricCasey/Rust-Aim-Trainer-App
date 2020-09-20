@@ -55,6 +55,7 @@ class App extends Component {
               Please try it out on your PC
             </h3>
 
+            {/* Waukesha / Stockholm */}
           </div>
 
         </div>
